@@ -18,97 +18,67 @@ const featured = landmarks.length
 export default function HomePage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-field">
-        <div className="mx-auto grid min-h-[calc(100svh-4.25rem)] max-w-6xl lg:grid-cols-[0.95fr_1.05fr]">
-          <div className="flex flex-col justify-center px-5 py-16 md:px-8 md:py-24">
-            <p className="animate-slide text-xs font-bold tracking-[0.28em] text-mark">
-              {company.nameEn} · {company.region}
-            </p>
-            <h1 className="animate-rise mt-5 font-[family-name:var(--font-display)] text-5xl font-extrabold leading-[1.05] tracking-tight text-ink md:text-6xl lg:text-7xl">
-              {company.name}
-            </h1>
-            <p className="animate-rise-2 mt-5 max-w-md text-lg leading-relaxed text-ink/85">
-              {company.specialty}
-            </p>
-            <p className="animate-rise-2 mt-3 max-w-md text-sm text-ink-soft">
-              {company.description}
-            </p>
-            <div className="animate-rise-3 mt-9 flex flex-wrap gap-3">
-              <Link
-                href="/contact"
-                className="bg-mark px-7 py-3.5 text-sm font-bold tracking-wide text-white transition hover:bg-mark-deep"
-              >
-                문의하기
-              </Link>
-              <Link
-                href="/project"
-                className="border border-mark/30 bg-transparent px-7 py-3.5 text-sm font-bold tracking-wide text-mark transition hover:bg-mark hover:text-white"
-              >
-                실적 보기
-              </Link>
-            </div>
-            <p className="mt-8 text-xs leading-relaxed text-ink-soft">
-              {company.highlight}
-            </p>
-          </div>
+      <section className="relative isolate min-h-[calc(100svh-3.5rem)] overflow-hidden md:min-h-[calc(100svh-4rem)]">
+        <Image
+          src="/assets/hero-paganica-hq.jpg"
+          alt="파가니카 CC 대표 실적"
+          fill
+          priority
+          className="animate-pan object-cover"
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-mark-deep/88 via-mark-deep/55 to-mark-deep/25" />
+        <div className="absolute inset-0 bg-gradient-to-t from-mark-deep/70 via-transparent to-mark-deep/20" />
 
-          <div className="relative min-h-[56vh] lg:min-h-full">
-            <Image
-              src="/assets/hero-paganica-hq.jpg"
-              alt="파가니카 CC 대표 실적"
-              fill
-              priority
-              className="animate-pan object-cover"
-              sizes="(max-width:1024px) 100vw, 55vw"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-mark-deep/95 via-mark-deep/55 to-mark-deep/35" />
-            <div className="absolute inset-0 bg-mark-deep/15" />
-            <div className="absolute inset-x-0 bottom-0 p-5 md:p-7">
-              <div className="grid gap-2 sm:grid-cols-3">
-                {landmarks.slice(0, 3).map((item) => (
-                  <div
-                    key={item.id}
-                    className="border border-white/20 bg-mark-deep/90 p-3"
-                  >
-                    <p className="text-[10px] font-bold tracking-wide text-white/55">
-                      {item.region} · {item.scale}
-                    </p>
-                    <p className="mt-1 text-sm font-bold text-white">{item.title}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+        <div className="relative mx-auto flex min-h-[calc(100svh-3.5rem)] max-w-7xl flex-col justify-end px-5 pb-16 pt-28 md:min-h-[calc(100svh-4rem)] md:px-8 md:pb-24 md:pt-32">
+          <p className="eyebrow animate-fade text-white/65">
+            {company.nameEn} · {company.region}
+          </p>
+          <h1 className="display animate-rise mt-5 max-w-3xl text-5xl text-white md:text-6xl lg:text-7xl">
+            {company.name}
+          </h1>
+          <p className="animate-rise-2 mt-5 max-w-xl text-base leading-relaxed text-white/80 md:text-lg">
+            {company.specialty}
+          </p>
+          <div className="animate-rise-3 mt-10 flex flex-wrap gap-3">
+            <Link href="/contact" className="btn-on-dark">
+              문의하기
+            </Link>
+            <Link href="/project" className="btn-ghost-light">
+              실적 보기
+            </Link>
           </div>
         </div>
       </section>
 
-      <section className="border-y border-line bg-surface">
-        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-px bg-line md:grid-cols-4">
+      <section className="border-b border-line bg-white">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 md:grid-cols-4">
           {stats.map((stat) => (
-            <div key={stat.label} className="bg-surface px-5 py-9 md:px-8">
-              <p className="font-[family-name:var(--font-display)] text-3xl font-bold text-ink md:text-4xl">
-                {stat.value}
-              </p>
+            <div
+              key={stat.label}
+              className="border-r border-line px-5 py-10 last:border-r-0 md:px-8 md:py-12 [&:nth-child(2)]:border-r-0 md:[&:nth-child(2)]:border-r"
+            >
+              <p className="display text-3xl text-ink md:text-4xl">{stat.value}</p>
               <p className="mt-2 text-sm text-ink-soft">{stat.label}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="bg-mark-deep text-chalk">
-        <div className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-24">
-          <p className="text-xs font-bold tracking-[0.28em] text-white/55">WHY GMEMC</p>
-          <h2 className="mt-3 max-w-2xl font-[family-name:var(--font-display)] text-3xl font-bold md:text-4xl">
+      <section className="bg-white">
+        <div className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
+          <p className="eyebrow text-mark">Why GMEMC</p>
+          <h2 className="display mt-4 max-w-2xl text-3xl text-ink md:text-5xl">
             발주처가 고르는 이유
           </h2>
-          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-16 grid gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
             {differentiators.map((item, i) => (
-              <article key={item.title} className="border-t border-white/20 pt-5">
-                <p className="font-[family-name:var(--font-display)] text-sm text-white/45">
-                  0{i + 1}
+              <article key={item.title} className="border-t border-line pt-6">
+                <p className="text-xs font-medium text-ink-soft">
+                  {String(i + 1).padStart(2, "0")}
                 </p>
-                <h3 className="mt-3 text-lg font-bold">{item.title}</h3>
-                <p className="mt-2 text-sm text-white/60">{item.desc}</p>
+                <h3 className="mt-4 text-lg font-semibold tracking-tight">{item.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-ink-soft">{item.desc}</p>
               </article>
             ))}
           </div>
@@ -116,49 +86,55 @@ export default function HomePage() {
       </section>
 
       <section className="bg-field">
-        <div className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-28">
+        <div className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="text-xs font-bold tracking-[0.28em] text-mark">사업 영역</p>
-              <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-bold md:text-5xl">
+              <p className="eyebrow text-mark">Business</p>
+              <h2 className="display mt-4 text-3xl text-ink md:text-5xl">
                 전기 · 통신 · 전문소방 · 기계
               </h2>
             </div>
-            <Link href="/services" className="text-sm font-bold text-ink underline-offset-4 hover:underline">
-              사업 자세히 →
+            <Link
+              href="/services"
+              className="text-sm font-medium text-ink-soft underline-offset-4 hover:text-ink hover:underline"
+            >
+              사업 자세히
             </Link>
           </div>
-          <div className="mt-12 divide-y divide-line border-y border-line bg-surface">
+          <div className="mt-14 divide-y divide-line border-y border-line bg-white">
             {businessAreas.map((area, index) => (
               <article
                 key={area.id}
-                className="grid gap-4 px-5 py-7 transition hover:bg-field md:grid-cols-[72px_140px_1fr] md:items-center md:px-8"
+                className="grid gap-3 px-5 py-8 transition hover:bg-field/60 md:grid-cols-[64px_160px_1fr] md:items-center md:px-8"
               >
-                <p className="font-[family-name:var(--font-display)] text-sm text-mark">
-                  0{index + 1}
+                <p className="text-xs font-medium text-ink-soft">
+                  {String(index + 1).padStart(2, "0")}
                 </p>
-                <h3 className="text-xl font-bold">{area.title}</h3>
-                <p className="text-sm text-ink-soft">{area.desc}</p>
+                <h3 className="text-xl font-semibold tracking-tight">{area.title}</h3>
+                <p className="text-sm leading-relaxed text-ink-soft">{area.desc}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-surface">
-        <div className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-28">
+      <section className="bg-white">
+        <div className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="text-xs font-bold tracking-[0.28em] text-mark">랜드마크 실적</p>
-              <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-bold md:text-5xl">
+              <p className="eyebrow text-mark">Projects</p>
+              <h2 className="display mt-4 text-3xl text-ink md:text-5xl">
                 규모가 보이는 포트폴리오
               </h2>
             </div>
-            <Link href="/project" className="text-sm font-bold text-ink underline-offset-4 hover:underline">
-              전체 실적 →
+            <Link
+              href="/project"
+              className="text-sm font-medium text-ink-soft underline-offset-4 hover:text-ink hover:underline"
+            >
+              전체 실적
             </Link>
           </div>
-          <div className="mt-12 grid gap-3 md:grid-cols-12">
+          <div className="mt-14 grid gap-2 md:grid-cols-12 md:gap-3">
             {featured.map((project, i) => {
               const wide = i === 0 || i === 3;
               return (
@@ -175,12 +151,12 @@ export default function HomePage() {
                     className="object-cover transition duration-700 group-hover:scale-[1.03]"
                     sizes="(max-width:768px) 100vw, 55vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-mark-deep/92 via-mark-deep/35 to-mark-deep/10" />
-                  <div className="absolute inset-x-0 bottom-0 p-5">
+                  <div className="absolute inset-0 bg-gradient-to-t from-mark-deep/85 via-mark-deep/20 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 p-5 md:p-6">
                     <p className="text-xs text-white/65">
                       {project.region} · {project.scale}
                     </p>
-                    <p className="mt-1 text-lg font-bold text-surface">{project.title}</p>
+                    <p className="mt-1 text-lg font-semibold text-white">{project.title}</p>
                   </div>
                 </article>
               );
@@ -189,93 +165,80 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-mark-deep text-chalk">
-        <div className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-28">
-          <p className="text-xs font-bold tracking-[0.28em] text-white/55">협업 방식</p>
-          <h2 className="mt-3 max-w-xl font-[family-name:var(--font-display)] text-3xl font-bold md:text-5xl">
+      <section className="bg-mark-deep text-white">
+        <div className="mx-auto max-w-7xl px-5 py-24 md:px-8 md:py-32">
+          <p className="eyebrow text-white/50">Process</p>
+          <h2 className="display mt-4 max-w-xl text-3xl md:text-5xl">
             문의부터 준공까지
           </h2>
-          <div className="mt-12 grid gap-8 md:grid-cols-4">
+          <div className="mt-16 grid gap-10 md:grid-cols-4 md:gap-8">
             {processSteps.map((step) => (
-              <article key={step.step} className="border-t border-white/15 pt-5">
-                <p className="font-[family-name:var(--font-display)] text-sm text-white/45">
-                  {step.step}
-                </p>
-                <h3 className="mt-3 text-lg font-bold">{step.title}</h3>
-                <p className="mt-2 text-sm text-white/60">{step.desc}</p>
+              <article key={step.step} className="border-t border-white/15 pt-6">
+                <p className="text-xs font-medium text-white/45">{step.step}</p>
+                <h3 className="mt-4 text-lg font-semibold">{step.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-white/60">{step.desc}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-field-deep">
-        <div className="mx-auto flex max-w-6xl flex-col gap-8 px-5 py-16 md:flex-row md:items-center md:justify-between md:px-8 md:py-20">
+      <section className="bg-field">
+        <div className="mx-auto flex max-w-7xl flex-col gap-8 px-5 py-20 md:flex-row md:items-center md:justify-between md:px-8 md:py-24">
           <div>
-            <p className="text-xs font-bold tracking-[0.28em] text-mark">채용</p>
-            <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-bold">
-              {careers[0].title}
-            </h2>
+            <p className="eyebrow text-mark">Careers</p>
+            <h2 className="display mt-4 text-3xl text-ink">{careers[0].title}</h2>
             <p className="mt-3 max-w-xl text-ink-soft">
               {careers[0].summary} ({careers[0].experience})
             </p>
           </div>
-          <Link
-            href="/careers"
-            className="inline-flex bg-mark px-6 py-3 text-sm font-bold text-white hover:bg-mark-deep"
-          >
+          <Link href="/careers" className="btn-primary">
             채용 안내
           </Link>
         </div>
       </section>
 
-      <section className="bg-surface">
-        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-20 md:grid-cols-2 md:px-8 md:py-28">
+      <section className="bg-white">
+        <div className="mx-auto grid max-w-7xl gap-12 px-5 py-24 md:grid-cols-2 md:px-8 md:py-32">
           <div>
-            <p className="text-xs font-bold tracking-[0.28em] text-mark">문의</p>
-            <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-bold md:text-4xl">
+            <p className="eyebrow text-mark">Contact</p>
+            <h2 className="display mt-4 text-3xl text-ink md:text-4xl">
               도면 전에
               <br />
               한 번의 상담으로
             </h2>
-            <dl className="mt-8 space-y-3 text-sm">
+            <dl className="mt-10 space-y-4 text-sm">
               <div className="flex gap-4">
-                <dt className="w-16 text-ink-soft">전화</dt>
-                <dd className="font-bold">
+                <dt className="w-14 text-ink-soft">전화</dt>
+                <dd className="font-medium">
                   <a href={`tel:${company.phone}`}>{company.phone}</a>
                 </dd>
               </div>
               <div className="flex gap-4">
-                <dt className="w-16 text-ink-soft">메일</dt>
+                <dt className="w-14 text-ink-soft">메일</dt>
                 <dd>
                   <a href={`mailto:${company.email}`}>{company.email}</a>
                 </dd>
               </div>
               <div className="flex gap-4">
-                <dt className="w-16 text-ink-soft">위치</dt>
-                <dd className="leading-relaxed">{company.address}</dd>
+                <dt className="w-14 text-ink-soft">위치</dt>
+                <dd className="leading-relaxed text-ink-soft">{company.address}</dd>
               </div>
             </dl>
           </div>
-          <div className="flex flex-col justify-center gap-3 bg-mark-deep p-8 text-surface md:p-10">
-            <Link
-              href="/contact"
-              className="bg-mark px-5 py-3.5 text-center text-sm font-bold text-white hover:bg-blue-mid"
-            >
+          <div className="flex flex-col justify-center gap-3 bg-mark-deep p-8 md:p-12">
+            <Link href="/contact" className="btn-on-dark w-full">
               문의하기
             </Link>
             <a
               href={company.nominationUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="border border-white/25 px-5 py-3.5 text-center text-sm font-bold hover:bg-white/5"
+              className="btn-ghost-light w-full"
             >
               지명원 다운로드
             </a>
-            <a
-              href={`tel:${company.phone}`}
-              className="border border-white/25 px-5 py-3.5 text-center text-sm font-bold hover:bg-white/5"
-            >
+            <a href={`tel:${company.phone}`} className="btn-ghost-light w-full">
               전화 {company.phone}
             </a>
           </div>

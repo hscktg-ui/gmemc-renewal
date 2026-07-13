@@ -25,27 +25,25 @@ const faqs = [
 export default function ContactPage() {
   return (
     <>
-      <section className="blueprint border-b border-line">
-        <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-20">
-          <p className="text-xs font-semibold tracking-[0.28em] text-mark">문의</p>
-          <h1 className="mt-4 font-[family-name:var(--font-display)] text-4xl font-bold md:text-5xl">
-            필요한 정보만 빠르게
-          </h1>
+      <section className="border-b border-line bg-white">
+        <div className="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-24">
+          <p className="eyebrow text-mark">Contact</p>
+          <h1 className="display mt-5 text-4xl md:text-5xl">필요한 정보만 빠르게</h1>
           <p className="mt-4 max-w-2xl text-ink-soft">
             전화 · 메일 · 지명원 · 오시는 길 · 문의 폼을 한곳에 모아 두었습니다.
           </p>
         </div>
       </section>
 
-      <section className="bg-white">
-        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-[0.95fr_1.05fr] md:px-8 md:py-20">
+      <section className="bg-field">
+        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 md:grid-cols-[0.95fr_1.05fr] md:px-8 md:py-24">
           <div className="space-y-6">
-            <div className="rounded-3xl bg-field p-6">
-              <h2 className="text-xl font-bold">바로 연락</h2>
-              <ul className="mt-4 space-y-3 text-sm">
+            <div className="border border-line bg-white p-6 md:p-8">
+              <h2 className="text-xl font-semibold tracking-tight">바로 연락</h2>
+              <ul className="mt-5 space-y-3 text-sm">
                 <li>
                   <span className="text-ink-soft">전화 </span>
-                  <a className="font-semibold" href={`tel:${company.phone}`}>
+                  <a className="font-medium" href={`tel:${company.phone}`}>
                     {company.phone}
                   </a>
                 </li>
@@ -70,13 +68,13 @@ export default function ContactPage() {
                 href={company.nominationUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex bg-mark px-5 py-3 text-sm font-semibold text-white"
+                className="btn-primary mt-6"
               >
                 지명원 다운로드
               </a>
             </div>
 
-            <div className="relative aspect-[16/10] overflow-hidden rounded-3xl bg-field-deep">
+            <div className="relative aspect-[16/10] overflow-hidden bg-field-deep">
               <Image
                 src="/assets/contact-map.png"
                 alt="오시는 길"
@@ -86,11 +84,11 @@ export default function ContactPage() {
               />
             </div>
 
-            <div>
-              <h2 className="text-lg font-bold">자주 묻는 질문</h2>
+            <div className="border border-line bg-white p-6 md:p-8">
+              <h2 className="text-lg font-semibold">자주 묻는 질문</h2>
               <div className="mt-4 space-y-3">
                 {faqs.map((faq) => (
-                  <details key={faq.q} className="rounded-2xl border border-line p-4">
+                  <details key={faq.q} className="border border-line p-4">
                     <summary className="cursor-pointer font-medium">{faq.q}</summary>
                     <p className="mt-2 text-sm text-ink-soft">{faq.a}</p>
                   </details>
@@ -99,8 +97,8 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="rounded-3xl border border-line p-6 md:p-8">
-            <h2 className="text-xl font-bold">온라인 문의</h2>
+          <div className="border border-line bg-white p-6 md:p-8">
+            <h2 className="text-xl font-semibold tracking-tight">온라인 문의</h2>
             <p className="mt-2 text-sm text-ink-soft">
               회사명 · 담당자 · 연락처 · 문의내용을 남겨 주세요.
             </p>

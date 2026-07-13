@@ -10,30 +10,30 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <section className="bg-mark-deep text-chalk">
-        <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
-          <p className="text-xs font-semibold tracking-[0.28em] text-white/55">사업</p>
-          <h1 className="mt-4 max-w-3xl font-[family-name:var(--font-display)] text-4xl font-bold md:text-6xl">
+      <section className="bg-mark-deep text-white">
+        <div className="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
+          <p className="eyebrow text-white/50">Business</p>
+          <h1 className="display mt-5 max-w-3xl text-4xl md:text-6xl">
             전기 · 통신 · 소방 · 기계
             <br />
             그리고 친환경 인증
           </h1>
-          <p className="mt-6 max-w-2xl text-white/70">{company.description}</p>
+          <p className="mt-6 max-w-2xl text-white/60">{company.description}</p>
         </div>
       </section>
 
       <section className="bg-white">
-        <div className="mx-auto max-w-6xl space-y-16 px-5 py-16 md:px-8 md:py-24">
+        <div className="mx-auto max-w-7xl space-y-20 px-5 py-20 md:px-8 md:py-28">
           {businessAreas.map((area, index) => {
             const reverse = index % 2 === 1;
             return (
               <article
                 key={area.id}
-                className={`grid items-center gap-8 md:grid-cols-2 ${
+                className={`grid items-center gap-10 md:grid-cols-2 ${
                   reverse ? "md:[&>*:first-child]:order-2" : ""
                 }`}
               >
-                <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-field-deep">
+                <div className="relative aspect-[4/3] overflow-hidden bg-field">
                   <Image
                     src={area.image}
                     alt={area.title}
@@ -43,11 +43,11 @@ export default function ServicesPage() {
                   />
                 </div>
                 <div>
-                  <p className="font-[family-name:var(--font-display)] text-sm text-mark">
-                    0{index + 1} · {area.en}
+                  <p className="eyebrow text-mark">
+                    {String(index + 1).padStart(2, "0")} · {area.en}
                   </p>
-                  <h2 className="mt-3 text-3xl font-bold">{area.title}</h2>
-                  <p className="mt-4 text-ink-soft leading-relaxed">{area.desc}</p>
+                  <h2 className="display mt-4 text-3xl">{area.title}</h2>
+                  <p className="mt-4 leading-relaxed text-ink-soft">{area.desc}</p>
                 </div>
               </article>
             );
@@ -56,21 +56,18 @@ export default function ServicesPage() {
       </section>
 
       <section className="border-t border-line bg-field">
-        <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-20">
-          <h2 className="font-[family-name:var(--font-display)] text-3xl font-bold">진행 프로세스</h2>
-          <div className="mt-10 grid gap-4 md:grid-cols-4">
+        <div className="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-24">
+          <h2 className="display text-3xl">진행 프로세스</h2>
+          <div className="mt-12 grid gap-8 md:grid-cols-4">
             {processSteps.map((step) => (
-              <div key={step.step} className="rounded-2xl bg-white p-5">
-                <p className="text-sm text-mark">{step.step}</p>
-                <h3 className="mt-2 font-bold">{step.title}</h3>
+              <div key={step.step} className="border-t border-line bg-white pt-5">
+                <p className="text-xs font-medium text-ink-soft">{step.step}</p>
+                <h3 className="mt-3 text-lg font-semibold">{step.title}</h3>
                 <p className="mt-2 text-sm text-ink-soft">{step.desc}</p>
               </div>
             ))}
           </div>
-          <Link
-            href="/contact"
-            className="mt-10 inline-flex bg-mark px-6 py-3 text-sm font-bold text-white hover:bg-mark-deep"
-          >
+          <Link href="/contact" className="btn-primary mt-12">
             사업 범위 상담하기
           </Link>
         </div>

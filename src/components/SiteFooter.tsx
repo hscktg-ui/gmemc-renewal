@@ -5,19 +5,19 @@ import { company, nav } from "@/lib/site";
 export function SiteFooter() {
   return (
     <footer className="bg-mark-deep text-chalk">
-      <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-[1.4fr_1fr_1fr] md:px-8">
+      <div className="mx-auto grid max-w-7xl gap-12 px-5 py-20 md:grid-cols-[1.4fr_1fr_1fr] md:px-8">
         <div>
           <BrandMark tone="dark" />
-          <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/60">
+          <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/55">
             {company.tagline}
             <br />
             {company.description}
           </p>
-          <p className="mt-4 text-xs text-white/40">{company.note}</p>
+          <p className="mt-4 text-xs text-white/35">{company.note}</p>
         </div>
         <div>
-          <p className="text-xs font-bold tracking-[0.22em] text-white/50">바로가기</p>
-          <ul className="mt-4 space-y-2.5 text-sm text-white/70">
+          <p className="eyebrow text-white/40">바로가기</p>
+          <ul className="mt-5 space-y-3 text-sm text-white/65">
             {nav.map((item) => (
               <li key={item.href}>
                 <Link href={item.href} className="hover:text-white">
@@ -28,8 +28,8 @@ export function SiteFooter() {
           </ul>
         </div>
         <div>
-          <p className="text-xs font-bold tracking-[0.22em] text-white/50">연락</p>
-          <ul className="mt-4 space-y-2.5 text-sm text-white/70">
+          <p className="eyebrow text-white/40">연락</p>
+          <ul className="mt-5 space-y-3 text-sm text-white/65">
             <li>
               <a href={`tel:${company.phone}`}>{company.phone}</a>
             </li>
@@ -42,7 +42,7 @@ export function SiteFooter() {
                 href={company.nominationUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/70 hover:text-white hover:underline"
+                className="hover:text-white hover:underline"
               >
                 지명원 다운로드
               </a>
@@ -51,7 +51,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-5 py-5 text-xs text-white/40 md:flex-row md:justify-between md:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col gap-2 px-5 py-5 text-xs text-white/35 md:flex-row md:justify-between md:px-8">
           <p>
             {company.legalName} | 대표 {company.ceo} | 사업자 {company.bizNo}
           </p>

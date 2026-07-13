@@ -47,9 +47,9 @@ export function ProjectGrid() {
                   key={category.id}
                   type="button"
                   onClick={() => setActive(category.id)}
-                  className={`rounded-sm px-4 py-2 text-sm font-bold transition ${
+                  className={`rounded-sm px-4 py-2 text-sm font-medium transition ${
                     selected
-                      ? "bg-ink text-surface"
+                      ? "bg-mark text-white"
                       : "bg-field text-ink hover:bg-field-deep"
                   }`}
                 >
@@ -70,7 +70,7 @@ export function ProjectGrid() {
                   key={item.id}
                   type="button"
                   onClick={() => setUseFilter(item.id)}
-                  className={`rounded-sm px-3 py-1.5 text-xs font-bold transition ${
+                  className={`rounded-sm px-3 py-1.5 text-xs font-medium transition ${
                     selected
                       ? "bg-mark text-white"
                       : "bg-field text-ink-soft hover:bg-field-deep"
@@ -90,7 +90,7 @@ export function ProjectGrid() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="프로젝트명 · 규모 검색"
-              className="w-full rounded-full border border-line bg-field px-4 py-2.5 outline-none focus:border-mark"
+              className="w-full border border-line bg-white px-4 py-2.5 outline-none focus:border-mark"
             />
           </label>
           <label className="text-sm md:w-48">
@@ -98,7 +98,7 @@ export function ProjectGrid() {
             <select
               value={region}
               onChange={(e) => setRegion(e.target.value)}
-              className="w-full rounded-full border border-line bg-field px-4 py-2.5 outline-none focus:border-mark"
+              className="w-full border border-line bg-white px-4 py-2.5 outline-none focus:border-mark"
             >
               {regions.map((item) => (
                 <option key={item} value={item}>
