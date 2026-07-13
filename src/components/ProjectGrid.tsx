@@ -36,9 +36,9 @@ export function ProjectGrid() {
 
   return (
     <div>
-      <div className="flex flex-col gap-4 rounded-3xl bg-white p-4 md:p-5">
+      <div className="flex flex-col gap-4 rounded-sm bg-surface p-4 md:p-5">
         <div>
-          <p className="mb-2 text-xs font-semibold text-ink-soft">대분류</p>
+          <p className="mb-2 text-xs font-bold text-ink-soft">대분류</p>
           <div className="flex flex-wrap gap-2">
             {projectCategories.map((category) => {
               const selected = active === category.id;
@@ -47,9 +47,9 @@ export function ProjectGrid() {
                   key={category.id}
                   type="button"
                   onClick={() => setActive(category.id)}
-                  className={`rounded-full px-4 py-2 text-sm font-medium transition ${
+                  className={`rounded-sm px-4 py-2 text-sm font-bold transition ${
                     selected
-                      ? "bg-mark text-white"
+                      ? "bg-ink text-surface"
                       : "bg-field text-ink hover:bg-field-deep"
                   }`}
                 >
@@ -61,7 +61,7 @@ export function ProjectGrid() {
         </div>
 
         <div>
-          <p className="mb-2 text-xs font-semibold text-ink-soft">용도 필터</p>
+          <p className="mb-2 text-xs font-bold text-ink-soft">용도 필터</p>
           <div className="flex flex-wrap gap-2">
             {projectUses.map((item) => {
               const selected = useFilter === item.id;
@@ -70,7 +70,7 @@ export function ProjectGrid() {
                   key={item.id}
                   type="button"
                   onClick={() => setUseFilter(item.id)}
-                  className={`rounded-full px-3 py-1.5 text-xs font-medium transition ${
+                  className={`rounded-sm px-3 py-1.5 text-xs font-bold transition ${
                     selected
                       ? "bg-signal text-ink"
                       : "bg-field text-ink-soft hover:bg-field-deep"
@@ -115,7 +115,7 @@ export function ProjectGrid() {
         {filtered.map((project) => (
           <article
             key={project.id}
-            className="group overflow-hidden rounded-3xl bg-white"
+            className="group overflow-hidden bg-surface"
           >
             <div className="relative aspect-[4/3] overflow-hidden">
               <Image
@@ -126,13 +126,13 @@ export function ProjectGrid() {
                 sizes="(max-width:768px) 100vw, 33vw"
               />
               {project.landmark && (
-                <span className="absolute left-3 top-3 rounded-full bg-signal px-2.5 py-1 text-[10px] font-bold text-ink">
+                <span className="absolute left-3 top-3 bg-signal px-2.5 py-1 text-[10px] font-bold text-ink">
                   LANDMARK
                 </span>
               )}
             </div>
             <div className="p-4">
-              <p className="text-xs text-mark">
+              <p className="text-xs text-signal">
                 {project.region} · {project.scale}
               </p>
               <h3 className="mt-1 font-semibold">{project.title}</h3>

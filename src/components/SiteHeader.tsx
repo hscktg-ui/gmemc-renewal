@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { BrandMark } from "@/components/BrandMark";
-import { company, nav } from "@/lib/site";
+import { nav } from "@/lib/site";
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -15,11 +15,13 @@ export function SiteHeader() {
   }, [pathname]);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-white/95 backdrop-blur-md">
-      <div className="mx-auto flex h-[4.25rem] max-w-6xl items-center justify-between gap-4 px-5 md:px-8">
-        <BrandMark tone="light" />
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-surface/95 backdrop-blur-md">
+      <div className="mx-auto flex h-[4.75rem] max-w-6xl items-center gap-6 px-5 md:px-8">
+        <div className="min-w-0 shrink-0 overflow-visible pr-2">
+          <BrandMark tone="light" />
+        </div>
 
-        <nav className="hidden items-center gap-6 lg:flex">
+        <nav className="hidden flex-1 items-center justify-center gap-9 lg:flex">
           {nav.map((item) => {
             const current =
               item.href === "/"
@@ -30,7 +32,9 @@ export function SiteHeader() {
                 key={item.href}
                 href={item.href}
                 aria-current={current ? "page" : undefined}
-                className="nav-link text-sm font-medium text-ink/80"
+                className={`nav-link text-[15px] font-bold tracking-wide ${
+                  current ? "text-ink" : "text-ink/70 hover:text-ink"
+                }`}
               >
                 {item.label}
               </Link>
@@ -38,24 +42,10 @@ export function SiteHeader() {
           })}
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
-          <a
-            href={company.nominationUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs font-medium text-mark underline-offset-4 hover:underline"
-          >
-            지명원
-          </a>
-          <a
-            href={`tel:${company.phone}`}
-            className="rounded-full bg-mark px-4 py-2 text-xs font-semibold tracking-wide text-white transition hover:bg-mark-deep"
-          >
-            {company.phone}
-          </a>
+        <div className="ml-auto hidden shrink-0 md:block">
           <Link
             href="/contact"
-            className="rounded-full bg-signal px-4 py-2 text-xs font-semibold text-ink transition hover:bg-signal-soft"
+            className="rounded-sm bg-ink px-5 py-2.5 text-xs font-bold tracking-[0.14em] text-surface transition hover:bg-mark"
           >
             문의하기
           </Link>
@@ -63,7 +53,7 @@ export function SiteHeader() {
 
         <button
           type="button"
-          className="grid h-10 w-10 place-items-center lg:hidden"
+          className="ml-auto grid h-10 w-10 place-items-center lg:hidden"
           aria-label={open ? "메뉴 닫기" : "메뉴 열기"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
@@ -77,17 +67,18 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <div className="border-t border-line bg-white px-5 py-5 lg:hidden">
-          <nav className="flex flex-col gap-3">
+        <div className="border-t border-line bg-surface px-5 py-5 lg:hidden">
+          <nav className="flex flex-col gap-4">
             {nav.map((item) => (
-              <Link key={item.href} href={item.href} className="text-base font-medium">
+              <Link
+                key={item.href}
+                href={item.href}
+                className="text-base font-bold tracking-wide"
+              >
                 {item.label}
               </Link>
             ))}
-            <a href={`tel:${company.phone}`} className="pt-2 font-semibold text-mark">
-              {company.phone}
-            </a>
-            <Link href="/contact" className="font-semibold text-ink">
+            <Link href="/contact" className="pt-1 font-bold text-signal">
               문의하기
             </Link>
           </nav>
