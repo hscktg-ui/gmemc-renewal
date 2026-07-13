@@ -13,9 +13,10 @@ export function BrandMark({
   tone = "light",
   className = "",
 }: BrandMarkProps) {
+  const isDark = tone === "dark";
   const image = (
     <Image
-      src="/assets/logo-header-clean.png"
+      src={isDark ? "/assets/logo-footer-white.png" : "/assets/logo-header-clean.png"}
       alt={company.legalName}
       width={120}
       height={37}
@@ -24,14 +25,9 @@ export function BrandMark({
     />
   );
 
-  const content =
-    tone === "dark" ? (
-      <span className={`inline-flex bg-white/95 px-1 py-0.5 ${className}`}>
-        {image}
-      </span>
-    ) : (
-      <span className={`inline-flex items-center ${className}`}>{image}</span>
-    );
+  const content = (
+    <span className={`inline-flex items-center ${className}`}>{image}</span>
+  );
 
   if (!href) return content;
   return (

@@ -22,6 +22,8 @@ const faqs = [
   },
 ];
 
+const mapsUrl = `https://map.naver.com/v5/search/${encodeURIComponent(company.address)}`;
+
 export default function ContactPage() {
   return (
     <>
@@ -79,14 +81,30 @@ export default function ContactPage() {
               </a>
             </div>
 
-            <div className="relative aspect-[16/10] overflow-hidden bg-field-deep">
-              <Image
-                src="/assets/contact-map.png"
-                alt="오시는 길"
-                fill
-                className="object-cover"
-                sizes="(max-width:768px) 100vw, 45vw"
-              />
+            <div>
+              <div className="relative aspect-[16/10] overflow-hidden bg-field-deep">
+                <Image
+                  src="/assets/contact-office.jpg"
+                  alt="본사 인근 업무 건물"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width:768px) 100vw, 45vw"
+                />
+              </div>
+              <div className="border border-t-0 border-line bg-white px-5 py-4">
+                <p className="text-sm font-medium text-ink">오시는 길</p>
+                <p className="mt-1 text-sm leading-relaxed text-ink-soft">
+                  {company.address}
+                </p>
+                <a
+                  href={mapsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 inline-flex text-sm font-medium text-mark hover:underline"
+                >
+                  네이버 지도에서 보기
+                </a>
+              </div>
             </div>
 
             <div className="border border-line bg-white p-6 md:p-8">
