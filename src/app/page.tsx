@@ -21,7 +21,7 @@ export default function HomePage() {
       <section className="relative overflow-hidden bg-field">
         <div className="mx-auto grid min-h-[calc(100svh-4.25rem)] max-w-6xl lg:grid-cols-[0.95fr_1.05fr]">
           <div className="flex flex-col justify-center px-5 py-16 md:px-8 md:py-24">
-            <p className="animate-slide text-xs font-bold tracking-[0.28em] text-signal">
+            <p className="animate-slide text-xs font-bold tracking-[0.28em] text-mark">
               {company.nameEn} · {company.region}
             </p>
             <h1 className="animate-rise mt-5 font-[family-name:var(--font-display)] text-5xl font-extrabold leading-[1.05] tracking-tight text-ink md:text-6xl lg:text-7xl">
@@ -61,18 +61,19 @@ export default function HomePage() {
               className="animate-pan object-cover"
               sizes="(max-width:1024px) 100vw, 55vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-mark-deep/75 via-mark-deep/15 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-mark-deep/95 via-mark-deep/55 to-mark-deep/35" />
+            <div className="absolute inset-0 bg-mark-deep/15" />
             <div className="absolute inset-x-0 bottom-0 p-5 md:p-7">
               <div className="grid gap-2 sm:grid-cols-3">
                 {landmarks.slice(0, 3).map((item) => (
                   <div
                     key={item.id}
-                    className="border border-white/15 bg-mark-deep/80 p-3 backdrop-blur-sm"
+                    className="border border-white/20 bg-mark-deep/90 p-3"
                   >
-                    <p className="text-[10px] font-bold tracking-wide text-signal-soft">
+                    <p className="text-[10px] font-bold tracking-wide text-white/55">
                       {item.region} · {item.scale}
                     </p>
-                    <p className="mt-1 text-sm font-bold text-surface">{item.title}</p>
+                    <p className="mt-1 text-sm font-bold text-white">{item.title}</p>
                   </div>
                 ))}
               </div>
@@ -96,14 +97,14 @@ export default function HomePage() {
 
       <section className="bg-mark-deep text-chalk">
         <div className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-24">
-          <p className="text-xs font-bold tracking-[0.28em] text-signal">WHY GMEMC</p>
+          <p className="text-xs font-bold tracking-[0.28em] text-white/55">WHY GMEMC</p>
           <h2 className="mt-3 max-w-2xl font-[family-name:var(--font-display)] text-3xl font-bold md:text-4xl">
             발주처가 고르는 이유
           </h2>
           <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {differentiators.map((item, i) => (
               <article key={item.title} className="border-t border-white/20 pt-5">
-                <p className="font-[family-name:var(--font-display)] text-sm text-signal">
+                <p className="font-[family-name:var(--font-display)] text-sm text-white/45">
                   0{i + 1}
                 </p>
                 <h3 className="mt-3 text-lg font-bold">{item.title}</h3>
@@ -118,7 +119,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-28">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="text-xs font-bold tracking-[0.28em] text-signal">사업 영역</p>
+              <p className="text-xs font-bold tracking-[0.28em] text-mark">사업 영역</p>
               <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-bold md:text-5xl">
                 전기 · 통신 · 전문소방 · 기계
               </h2>
@@ -133,7 +134,7 @@ export default function HomePage() {
                 key={area.id}
                 className="grid gap-4 px-5 py-7 transition hover:bg-field md:grid-cols-[72px_140px_1fr] md:items-center md:px-8"
               >
-                <p className="font-[family-name:var(--font-display)] text-sm text-signal">
+                <p className="font-[family-name:var(--font-display)] text-sm text-mark">
                   0{index + 1}
                 </p>
                 <h3 className="text-xl font-bold">{area.title}</h3>
@@ -148,7 +149,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-28">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="text-xs font-bold tracking-[0.28em] text-signal">랜드마크 실적</p>
+              <p className="text-xs font-bold tracking-[0.28em] text-mark">랜드마크 실적</p>
               <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-bold md:text-5xl">
                 규모가 보이는 포트폴리오
               </h2>
@@ -174,7 +175,7 @@ export default function HomePage() {
                     className="object-cover transition duration-700 group-hover:scale-[1.03]"
                     sizes="(max-width:768px) 100vw, 55vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-mark-deep/90 via-mark-deep/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-mark-deep/92 via-mark-deep/35 to-mark-deep/10" />
                   <div className="absolute inset-x-0 bottom-0 p-5">
                     <p className="text-xs text-white/65">
                       {project.region} · {project.scale}
@@ -190,14 +191,14 @@ export default function HomePage() {
 
       <section className="bg-mark-deep text-chalk">
         <div className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-28">
-          <p className="text-xs font-bold tracking-[0.28em] text-signal">협업 방식</p>
+          <p className="text-xs font-bold tracking-[0.28em] text-white/55">협업 방식</p>
           <h2 className="mt-3 max-w-xl font-[family-name:var(--font-display)] text-3xl font-bold md:text-5xl">
             문의부터 준공까지
           </h2>
           <div className="mt-12 grid gap-8 md:grid-cols-4">
             {processSteps.map((step) => (
               <article key={step.step} className="border-t border-white/15 pt-5">
-                <p className="font-[family-name:var(--font-display)] text-sm text-signal">
+                <p className="font-[family-name:var(--font-display)] text-sm text-white/45">
                   {step.step}
                 </p>
                 <h3 className="mt-3 text-lg font-bold">{step.title}</h3>
@@ -211,7 +212,7 @@ export default function HomePage() {
       <section className="bg-field-deep">
         <div className="mx-auto flex max-w-6xl flex-col gap-8 px-5 py-16 md:flex-row md:items-center md:justify-between md:px-8 md:py-20">
           <div>
-            <p className="text-xs font-bold tracking-[0.28em] text-signal">채용</p>
+            <p className="text-xs font-bold tracking-[0.28em] text-mark">채용</p>
             <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-bold">
               {careers[0].title}
             </h2>
@@ -231,7 +232,7 @@ export default function HomePage() {
       <section className="bg-surface">
         <div className="mx-auto grid max-w-6xl gap-10 px-5 py-20 md:grid-cols-2 md:px-8 md:py-28">
           <div>
-            <p className="text-xs font-bold tracking-[0.28em] text-signal">문의</p>
+            <p className="text-xs font-bold tracking-[0.28em] text-mark">문의</p>
             <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-bold md:text-4xl">
               도면 전에
               <br />

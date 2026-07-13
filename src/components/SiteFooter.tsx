@@ -16,7 +16,7 @@ export function SiteFooter() {
           <p className="mt-4 text-xs text-white/40">{company.note}</p>
         </div>
         <div>
-          <p className="text-xs font-bold tracking-[0.22em] text-signal">바로가기</p>
+          <p className="text-xs font-bold tracking-[0.22em] text-white/50">바로가기</p>
           <ul className="mt-4 space-y-2.5 text-sm text-white/70">
             {nav.map((item) => (
               <li key={item.href}>
@@ -28,7 +28,7 @@ export function SiteFooter() {
           </ul>
         </div>
         <div>
-          <p className="text-xs font-bold tracking-[0.22em] text-signal">연락</p>
+          <p className="text-xs font-bold tracking-[0.22em] text-white/50">연락</p>
           <ul className="mt-4 space-y-2.5 text-sm text-white/70">
             <li>
               <a href={`tel:${company.phone}`}>{company.phone}</a>
@@ -42,7 +42,7 @@ export function SiteFooter() {
                 href={company.nominationUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-signal-soft hover:underline"
+                className="text-white/70 hover:text-white hover:underline"
               >
                 지명원 다운로드
               </a>

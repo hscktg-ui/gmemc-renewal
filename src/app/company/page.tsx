@@ -12,7 +12,7 @@ export default function CompanyPage() {
     <>
       <section className="border-b border-line bg-mark-deep text-chalk">
         <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-20">
-          <p className="text-xs font-bold tracking-[0.28em] text-signal">회사</p>
+          <p className="text-xs font-bold tracking-[0.28em] text-white/55">회사</p>
           <h1 className="mt-4 max-w-3xl font-[family-name:var(--font-display)] text-4xl font-bold md:text-5xl">
             설계와 감리를
             <br />
@@ -34,7 +34,7 @@ export default function CompanyPage() {
               priority
             />
             <div className="absolute inset-x-0 bottom-0 bg-mark-deep/85 px-5 py-4 text-white">
-              <p className="text-[11px] font-bold tracking-[0.2em] text-signal">CONCEPT</p>
+              <p className="text-[11px] font-bold tracking-[0.2em] text-white/55">CONCEPT</p>
               <p className="mt-1 text-sm font-medium">건축 설비 엔지니어링 스케치</p>
             </div>
           </div>

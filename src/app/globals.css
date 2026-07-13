@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  /* Logo-aligned corporate (대기업): deep navy + cool gray + restrained lime */
+  /* Logo-aligned corporate: deep navy chrome; lime only inside logo mark */
   --ink: #0c1524;
   --ink-soft: #5b6678;
   --field: #eef1f5;
   --field-deep: #e2e7ee;
   --mark: #143a74;
   --mark-deep: #0b274f;
-  --signal: #6f9a32;
-  --signal-soft: #88b34a;
-  --lime: #6f9a32;
+  --signal: #143a74;
+  --signal-soft: #2a5694;
+  --lime: #5f7f2e;
   --blue-mid: #2a5694;
   --line: rgba(12, 21, 36, 0.1);
   --white: #ffffff;

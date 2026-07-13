@@ -13,21 +13,23 @@ export function BrandMark({
   tone = "light",
   className = "",
 }: BrandMarkProps) {
-  // Compact lockup — keeps presence low in corporate header
+  // Original logo, black bg removed + content-cropped for quiet header lockup
   const image = (
     <Image
-      src="/assets/logo-header-compact.png"
+      src="/assets/logo-header-clean.png"
       alt={company.legalName}
       width={160}
-      height={44}
-      className="h-7 w-auto max-w-[148px] object-contain object-left opacity-95 md:h-8 md:max-w-[168px]"
+      height={50}
+      className="h-7 w-auto max-w-[140px] object-contain object-left md:h-8 md:max-w-[156px]"
       priority
     />
   );
 
   const content =
     tone === "dark" ? (
-      <span className={`inline-flex bg-white px-2 py-1 ${className}`}>{image}</span>
+      <span className={`inline-flex bg-white/95 px-1.5 py-0.5 ${className}`}>
+        {image}
+      </span>
     ) : (
       <span className={`inline-flex items-center ${className}`}>{image}</span>
     );

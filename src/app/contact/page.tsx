@@ -70,7 +70,7 @@ export default function ContactPage() {
                 href={company.nominationUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex rounded-full bg-mark px-5 py-3 text-sm font-semibold text-white"
+                className="mt-6 inline-flex bg-mark px-5 py-3 text-sm font-semibold text-white"
               >
                 지명원 다운로드
               </a>

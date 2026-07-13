@@ -11,7 +11,7 @@ export default function CareersPage() {
     <>
       <section className="bg-mark-deep text-chalk">
         <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
-          <p className="text-xs font-semibold tracking-[0.28em] text-signal">채용</p>
+          <p className="text-xs font-semibold tracking-[0.28em] text-white/55">채용</p>
           <h1 className="mt-4 font-[family-name:var(--font-display)] text-4xl font-bold md:text-6xl">
             함께 도면을 다듬을
             <br />
@@ -40,7 +40,7 @@ export default function CareersPage() {
                 href={job.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex shrink-0 rounded-full bg-mark px-5 py-3 text-sm font-semibold text-white hover:bg-mark-deep md:mt-0"
+                className="mt-6 inline-flex shrink-0 bg-mark px-5 py-3 text-sm font-semibold text-white hover:bg-mark-deep md:mt-0"
               >
                 공고 보기
               </a>

@@ -72,7 +72,7 @@ export function ProjectGrid() {
                   onClick={() => setUseFilter(item.id)}
                   className={`rounded-sm px-3 py-1.5 text-xs font-bold transition ${
                     selected
-                      ? "bg-signal text-ink"
+                      ? "bg-mark text-white"
                       : "bg-field text-ink-soft hover:bg-field-deep"
                   }`}
                 >
@@ -126,13 +126,13 @@ export function ProjectGrid() {
                 sizes="(max-width:768px) 100vw, 33vw"
               />
               {project.landmark && (
-                <span className="absolute left-3 top-3 bg-signal px-2.5 py-1 text-[10px] font-bold text-ink">
+                <span className="absolute left-3 top-3 bg-mark-deep px-2.5 py-1 text-[10px] font-bold text-white">
                   LANDMARK
                 </span>
               )}
             </div>
             <div className="p-4">
-              <p className="text-xs text-signal">
+              <p className="text-xs text-mark">
                 {project.region} · {project.scale}
               </p>
               <h3 className="mt-1 font-semibold">{project.title}</h3>
