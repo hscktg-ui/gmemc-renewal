@@ -15,7 +15,7 @@ export default function ProjectPage() {
             용도 · 지역으로 찾는 포트폴리오
           </h1>
           <p className="mt-4 max-w-2xl text-ink-soft">
-            레저·공공·공동주택·복합시설 실적을 카테고리와 지역, 키워드로 바로 걸러 보세요.
+            대분류 · 용도(석우형 세분) · 지역 · 키워드로 실적을 즉시 찾습니다. 랜드마크 프로젝트는 배지로 표시됩니다.
           </p>
         </div>
       </section>

@@ -4,34 +4,31 @@ import {
   businessAreas,
   careers,
   company,
+  differentiators,
+  landmarks,
   processSteps,
   projects,
   stats,
+  trustBadges,
 } from "@/lib/site";
 
-const featured = [
-  projects[5],
-  projects[8],
-  projects[12],
-  projects[19],
-  projects[2],
-  projects[11],
-];
+const featured = landmarks.length
+  ? [...landmarks, ...projects.filter((p) => !p.landmark)].slice(0, 6)
+  : projects.slice(0, 6);
 
 export default function HomePage() {
   return (
     <>
-      {/* Hero: brand-first, not the old dark full-bleed clone */}
       <section className="blueprint relative overflow-hidden">
         <div className="mx-auto grid min-h-[calc(100svh-4.25rem)] max-w-6xl lg:grid-cols-[1.05fr_0.95fr]">
-          <div className="flex flex-col justify-center px-5 py-16 md:px-8 md:py-24">
-            <p className="animate-slide text-xs font-semibold tracking-[0.28em] text-mark">
-              MEP DESIGN & SUPERVISION · {company.region}
+          <div className="flex flex-col justify-center px-5 py-14 md:px-8 md:py-20">
+            <p className="animate-slide inline-flex w-fit items-center rounded-full bg-mark/10 px-3 py-1 text-xs font-semibold tracking-wide text-mark">
+              {company.specialty}
             </p>
             <h1 className="animate-rise mt-5 font-[family-name:var(--font-display)] text-5xl font-extrabold leading-[1.05] tracking-tight text-ink md:text-7xl">
               {company.name}
             </h1>
-            <p className="animate-rise-2 mt-5 max-w-md text-lg text-ink-soft">
+            <p className="animate-rise-2 mt-4 max-w-lg text-xl font-medium text-ink">
               {company.tagline}
             </p>
             <p className="animate-rise-2 mt-3 max-w-lg text-sm text-ink-soft">
@@ -44,35 +41,61 @@ export default function HomePage() {
               >
                 문의하기
               </Link>
-              <Link
-                href="/project"
-                className="rounded-full border border-mark/30 bg-white px-6 py-3 text-sm font-semibold text-mark transition hover:bg-mark hover:text-white"
+              <a
+                href={`tel:${company.phone}`}
+                className="rounded-full bg-mark px-6 py-3 text-sm font-semibold text-white transition hover:bg-mark-deep"
               >
-                실적 살펴보기
-              </Link>
+                {company.phone}
+              </a>
+              <a
+                href={company.nominationUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border border-mark/30 bg-white px-6 py-3 text-sm font-semibold text-mark"
+              >
+                지명원
+              </a>
             </div>
-            <p className="mt-8 text-xs text-ink-soft">{company.note}</p>
+            <div className="mt-8 flex flex-wrap gap-2">
+              {trustBadges.map((badge) => (
+                <span
+                  key={badge}
+                  className="rounded-full border border-line bg-white px-3 py-1 text-xs font-medium text-ink-soft"
+                >
+                  {badge}
+                </span>
+              ))}
+            </div>
+            <p className="mt-4 text-xs text-ink-soft">{company.note}</p>
           </div>
 
-          <div className="relative min-h-[48vh] lg:min-h-full">
+          <div className="relative min-h-[52vh] lg:min-h-full">
             <Image
-              src="/assets/projects/leisure-paganica.png"
-              alt="대표 실적 이미지"
+              src={landmarks[0]?.image ?? "/assets/projects/leisure-paganica.png"}
+              alt={landmarks[0]?.title ?? "대표 실적"}
               fill
               priority
               className="animate-pan object-cover"
               sizes="(max-width:1024px) 100vw, 50vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-transparent lg:bg-gradient-to-l" />
-            <div className="absolute bottom-6 left-6 right-6 rounded-2xl bg-white/90 p-4 backdrop-blur md:left-8 md:right-auto md:w-72">
-              <p className="text-xs font-semibold tracking-wide text-mark">신뢰 지표</p>
-              <p className="mt-1 text-2xl font-bold text-ink">{company.highlight}</p>
+            <div className="absolute inset-0 bg-gradient-to-t from-mark-deep/80 via-transparent to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 grid gap-2 p-5 sm:grid-cols-3">
+              {landmarks.slice(0, 3).map((item) => (
+                <div
+                  key={item.id}
+                  className="rounded-2xl bg-white/95 p-3 backdrop-blur"
+                >
+                  <p className="text-[10px] font-semibold tracking-wide text-mark">
+                    {item.region} · {item.scale}
+                  </p>
+                  <p className="mt-1 text-sm font-bold text-ink">{item.title}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Stats strip */}
       <section className="border-y border-line bg-white">
         <div className="mx-auto grid max-w-6xl grid-cols-2 gap-px bg-line md:grid-cols-4">
           {stats.map((stat) => (
@@ -86,23 +109,44 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Services: numbered list, not old 4-card gallery */}
+      <section className="bg-mark-deep text-chalk">
+        <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-20">
+          <p className="text-xs font-semibold tracking-[0.28em] text-signal">
+            WHY GMEMC
+          </p>
+          <h2 className="mt-3 max-w-2xl font-[family-name:var(--font-display)] text-3xl font-bold md:text-4xl">
+            경쟁사 대비, 발주처가 고른 이유
+          </h2>
+          <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {differentiators.map((item, i) => (
+              <article
+                key={item.title}
+                className="rounded-2xl border border-white/15 bg-white/5 p-5"
+              >
+                <p className="font-[family-name:var(--font-display)] text-sm text-signal">
+                  0{i + 1}
+                </p>
+                <h3 className="mt-3 text-lg font-bold">{item.title}</h3>
+                <p className="mt-2 text-sm text-white/70">{item.desc}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="bg-field">
         <div className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-28">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="text-xs font-semibold tracking-[0.28em] text-mark">사업 영역</p>
               <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-bold md:text-5xl">
-                네 가지 전문으로
-                <br />
-                건물의 시스템을 완성합니다
+                전기 · 통신 · 전문소방 · 기계
               </h2>
             </div>
             <Link href="/services" className="text-sm font-semibold text-mark hover:underline">
               사업 자세히 →
             </Link>
           </div>
-
           <div className="mt-12 divide-y divide-line border-y border-line bg-white">
             {businessAreas.map((area, index) => (
               <article
@@ -121,28 +165,26 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Works: asymmetric, info-dense */}
       <section className="bg-white">
         <div className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-28">
           <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="text-xs font-semibold tracking-[0.28em] text-mark">실적</p>
+              <p className="text-xs font-semibold tracking-[0.28em] text-mark">랜드마크 실적</p>
               <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-bold md:text-5xl">
-                현장에서 검증된 포트폴리오
+                규모가 보이는 포트폴리오
               </h2>
             </div>
             <Link href="/project" className="text-sm font-semibold text-mark hover:underline">
-              전체 실적 →
+              용도·지역 필터로 전체 보기 →
             </Link>
           </div>
-
           <div className="mt-12 grid gap-4 md:grid-cols-12">
             {featured.map((project, i) => {
               const wide = i === 0 || i === 3;
               return (
                 <article
                   key={project.id}
-                  className={`group relative overflow-hidden ${
+                  className={`group relative overflow-hidden rounded-3xl ${
                     wide ? "md:col-span-7 aspect-[16/10]" : "md:col-span-5 aspect-[4/3]"
                   }`}
                 >
@@ -153,9 +195,11 @@ export default function HomePage() {
                     className="object-cover transition duration-700 group-hover:scale-105"
                     sizes="(max-width:768px) 100vw, 55vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/10 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/15 to-transparent" />
                   <div className="absolute inset-x-0 bottom-0 p-5">
-                    <p className="text-xs text-white/70">{project.region}</p>
+                    <p className="text-xs text-white/70">
+                      {project.region} · {project.scale}
+                    </p>
                     <p className="mt-1 text-lg font-semibold text-white">{project.title}</p>
                   </div>
                 </article>
@@ -165,8 +209,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Process */}
-      <section className="bg-mark-deep text-chalk">
+      <section className="bg-ink text-chalk">
         <div className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-28">
           <p className="text-xs font-semibold tracking-[0.28em] text-signal">협업 방식</p>
           <h2 className="mt-3 max-w-xl font-[family-name:var(--font-display)] text-3xl font-bold md:text-5xl">
@@ -186,7 +229,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Careers from latest public info */}
       <section className="bg-field-deep">
         <div className="mx-auto flex max-w-6xl flex-col gap-8 px-5 py-16 md:flex-row md:items-center md:justify-between md:px-8 md:py-20">
           <div>
@@ -217,15 +259,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Contact CTA */}
       <section className="bg-white">
         <div className="mx-auto grid max-w-6xl gap-8 px-5 py-20 md:grid-cols-2 md:px-8 md:py-28">
           <div>
             <p className="text-xs font-semibold tracking-[0.28em] text-mark">문의</p>
             <h2 className="mt-3 font-[family-name:var(--font-display)] text-3xl font-bold md:text-4xl">
-              도면 전에, 한 통의 통화로
+              3초 안에 연락 가능한
               <br />
-              범위를 맞춰 드립니다
+              발주처형 전환 구조
             </h2>
             <dl className="mt-8 space-y-3 text-sm">
               <div className="flex gap-4">
@@ -247,7 +288,13 @@ export default function HomePage() {
             </dl>
           </div>
           <div className="flex flex-col justify-center gap-4 rounded-3xl bg-mark-deep p-8 text-white md:p-10">
-            <p className="text-sm text-white/70">빠른 자료</p>
+            <p className="text-sm text-white/70">빠른 전환</p>
+            <a
+              href={`tel:${company.phone}`}
+              className="rounded-full bg-white px-5 py-3 text-center text-sm font-semibold text-mark"
+            >
+              전화 문의 {company.phone}
+            </a>
             <a
               href={company.nominationUrl}
               target="_blank"
@@ -261,12 +308,6 @@ export default function HomePage() {
               className="rounded-full bg-signal px-5 py-3 text-center text-sm font-semibold text-ink hover:bg-signal-soft"
             >
               문의하기
-            </Link>
-            <Link
-              href="/company"
-              className="rounded-full border border-white/20 px-5 py-3 text-center text-sm font-semibold hover:bg-white/5"
-            >
-              회사·대표 소개
             </Link>
           </div>
         </div>

@@ -23,9 +23,16 @@ export const metadata: Metadata = {
     default: `${company.name} | ${company.tagline}`,
     template: `%s | ${company.name}`,
   },
-  description: `${company.description} ${company.highlight}. 대표 ${company.ceo}. ${company.address}`,
+  description: `${company.specialty} ${company.description} ${company.highlight}. 대표 ${company.ceo}. ${company.address}`,
+  keywords: company.keywords.split(", ").concat([
+    "지엠이엠씨",
+    "GMEMC",
+    "설비설계",
+    "설비감리",
+    "전문소방설계",
+  ]),
   openGraph: {
-    title: company.legalName,
+    title: `${company.legalName} | ${company.specialty}`,
     description: company.description,
     images: ["/assets/logo-main.png"],
   },
