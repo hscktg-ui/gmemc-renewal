@@ -47,18 +47,18 @@ export default function RootLayout({
     <html lang="ko">
       <body className={`${body.variable} ${display.variable} antialiased`}>
         <SiteHeader />
-        <main className="min-h-screen pt-[4.75rem] pb-20 md:pb-0">{children}</main>
+        <main className="min-h-screen pt-16 pb-20 md:pt-[4.25rem] md:pb-0">{children}</main>
         <SiteFooter />
         <div className="fixed inset-x-0 bottom-0 z-40 flex gap-2 border-t border-line bg-surface/95 p-3 backdrop-blur md:hidden">
           <a
             href={`tel:${company.phone}`}
-            className="flex-1 bg-ink py-3 text-center text-sm font-bold text-surface"
+            className="flex-1 bg-mark py-3 text-center text-sm font-bold text-white"
           >
             전화
           </a>
           <a
             href="/contact"
-            className="flex-1 bg-signal py-3 text-center text-sm font-bold text-ink"
+            className="flex-1 border border-mark bg-white py-3 text-center text-sm font-bold text-mark"
           >
             문의하기
           </a>

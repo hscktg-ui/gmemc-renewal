@@ -15,13 +15,11 @@ export function SiteHeader() {
   }, [pathname]);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-surface/95 backdrop-blur-md">
-      <div className="mx-auto flex h-[4.75rem] max-w-6xl items-center gap-6 px-5 md:px-8">
-        <div className="min-w-0 shrink-0 overflow-visible pr-2">
-          <BrandMark tone="light" />
-        </div>
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-white/95 backdrop-blur-md">
+      <div className="mx-auto flex h-16 max-w-6xl items-center gap-8 px-5 md:h-[4.25rem] md:px-8">
+        <BrandMark tone="light" />
 
-        <nav className="hidden flex-1 items-center justify-center gap-9 lg:flex">
+        <nav className="hidden flex-1 items-center justify-center gap-8 lg:flex">
           {nav.map((item) => {
             const current =
               item.href === "/"
@@ -32,8 +30,8 @@ export function SiteHeader() {
                 key={item.href}
                 href={item.href}
                 aria-current={current ? "page" : undefined}
-                className={`nav-link text-[15px] font-bold tracking-wide ${
-                  current ? "text-ink" : "text-ink/70 hover:text-ink"
+                className={`nav-link text-[13px] font-semibold ${
+                  current ? "text-mark" : "text-ink/65 hover:text-ink"
                 }`}
               >
                 {item.label}
@@ -45,7 +43,7 @@ export function SiteHeader() {
         <div className="ml-auto hidden shrink-0 md:block">
           <Link
             href="/contact"
-            className="rounded-sm bg-ink px-5 py-2.5 text-xs font-bold tracking-[0.14em] text-surface transition hover:bg-mark"
+            className="bg-mark px-4 py-2 text-[11px] font-bold tracking-[0.16em] text-white transition hover:bg-mark-deep"
           >
             문의하기
           </Link>
@@ -67,18 +65,14 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <div className="border-t border-line bg-surface px-5 py-5 lg:hidden">
+        <div className="border-t border-line bg-white px-5 py-5 lg:hidden">
           <nav className="flex flex-col gap-4">
             {nav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-base font-bold tracking-wide"
-              >
+              <Link key={item.href} href={item.href} className="text-sm font-semibold">
                 {item.label}
               </Link>
             ))}
-            <Link href="/contact" className="pt-1 font-bold text-signal">
+            <Link href="/contact" className="font-bold text-mark">
               문의하기
             </Link>
           </nav>

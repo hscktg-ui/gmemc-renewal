@@ -46,7 +46,7 @@ export function ContactForm() {
       </label>
       <button
         type="submit"
-      className="rounded-sm bg-signal px-5 py-3 text-sm font-bold text-ink hover:bg-signal-soft"
+      className="bg-mark px-5 py-3 text-sm font-bold text-white hover:bg-mark-deep"
       >
         문의 보내기
       </button>

@@ -19,7 +19,7 @@ export default function HomePage() {
   return (
     <>
       <section className="relative overflow-hidden bg-field">
-        <div className="mx-auto grid min-h-[calc(100svh-4.75rem)] max-w-6xl lg:grid-cols-[0.95fr_1.05fr]">
+        <div className="mx-auto grid min-h-[calc(100svh-4.25rem)] max-w-6xl lg:grid-cols-[0.95fr_1.05fr]">
           <div className="flex flex-col justify-center px-5 py-16 md:px-8 md:py-24">
             <p className="animate-slide text-xs font-bold tracking-[0.28em] text-signal">
               {company.nameEn} · {company.region}
@@ -36,13 +36,13 @@ export default function HomePage() {
             <div className="animate-rise-3 mt-9 flex flex-wrap gap-3">
               <Link
                 href="/contact"
-                className="rounded-sm bg-ink px-7 py-3.5 text-sm font-bold tracking-wide text-surface transition hover:bg-mark"
+                className="bg-mark px-7 py-3.5 text-sm font-bold tracking-wide text-white transition hover:bg-mark-deep"
               >
                 문의하기
               </Link>
               <Link
                 href="/project"
-                className="rounded-sm border border-ink/25 bg-transparent px-7 py-3.5 text-sm font-bold tracking-wide text-ink transition hover:border-ink hover:bg-ink hover:text-surface"
+                className="border border-mark/30 bg-transparent px-7 py-3.5 text-sm font-bold tracking-wide text-mark transition hover:bg-mark hover:text-white"
               >
                 실적 보기
               </Link>
@@ -188,7 +188,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-ink text-chalk">
+      <section className="bg-mark-deep text-chalk">
         <div className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-28">
           <p className="text-xs font-bold tracking-[0.28em] text-signal">협업 방식</p>
           <h2 className="mt-3 max-w-xl font-[family-name:var(--font-display)] text-3xl font-bold md:text-5xl">
@@ -221,7 +221,7 @@ export default function HomePage() {
           </div>
           <Link
             href="/careers"
-            className="inline-flex rounded-sm bg-ink px-6 py-3 text-sm font-bold text-surface hover:bg-mark"
+            className="inline-flex bg-mark px-6 py-3 text-sm font-bold text-white hover:bg-mark-deep"
           >
             채용 안내
           </Link>
@@ -259,7 +259,7 @@ export default function HomePage() {
           <div className="flex flex-col justify-center gap-3 bg-mark-deep p-8 text-surface md:p-10">
             <Link
               href="/contact"
-              className="bg-signal px-5 py-3.5 text-center text-sm font-bold text-ink hover:bg-signal-soft"
+              className="bg-mark px-5 py-3.5 text-center text-sm font-bold text-white hover:bg-blue-mid"
             >
               문의하기
             </Link>

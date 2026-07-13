@@ -1,21 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  /* Serious / heavy / warm — logo lime used only as quiet accent */
-  --ink: #1a1612;
-  --ink-soft: #6b635a;
-  --field: #ebe6df;
-  --field-deep: #ddd6cc;
-  --mark: #3d342c;
-  --mark-deep: #241f1b;
-  --signal: #9a7340;
-  --signal-soft: #b8925c;
-  --lime: #6f8f3a;
-  --blue-mid: #2c3d5a;
-  --line: rgba(26, 22, 18, 0.12);
-  --white: #f7f4ef;
-  --chalk: #f3efe8;
-  --surface: #f7f4ef;
+  /* Logo-aligned corporate (대기업): deep navy + cool gray + restrained lime */
+  --ink: #0c1524;
+  --ink-soft: #5b6678;
+  --field: #eef1f5;
+  --field-deep: #e2e7ee;
+  --mark: #143a74;
+  --mark-deep: #0b274f;
+  --signal: #6f9a32;
+  --signal-soft: #88b34a;
+  --lime: #6f9a32;
+  --blue-mid: #2a5694;
+  --line: rgba(12, 21, 36, 0.1);
+  --white: #ffffff;
+  --chalk: #f7f9fc;
+  --surface: #ffffff;
 }
 
 @theme inline {
@@ -64,21 +64,21 @@ img {
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--signal) 28%, white);
+  background: color-mix(in srgb, var(--mark) 18%, white);
 }
 
 .blueprint {
   background-color: var(--field);
   background-image:
-    linear-gradient(to right, rgba(61, 52, 44, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(61, 52, 44, 0.06) 1px, transparent 1px);
-  background-size: 56px 56px;
+    linear-gradient(to right, rgba(20, 58, 116, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(20, 58, 116, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
 }
 
 @keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(22px);
+    transform: translateY(18px);
   }
   to {
     opacity: 1;
@@ -89,7 +89,7 @@ img {
 @keyframes slide-x {
   from {
     opacity: 0;
-    transform: translateX(-16px);
+    transform: translateX(-12px);
   }
   to {
     opacity: 1;
@@ -99,10 +99,10 @@ img {
 
 @keyframes pan {
   from {
-    transform: scale(1.05) translate3d(1%, 0, 0);
+    transform: scale(1.04);
   }
   to {
-    transform: scale(1) translate3d(0, 0, 0);
+    transform: scale(1);
   }
 }
 
@@ -128,7 +128,7 @@ img {
 
 .nav-link {
   position: relative;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
 }
 
 .nav-link::after {
@@ -138,7 +138,7 @@ img {
   bottom: -6px;
   width: 0;
   height: 2px;
-  background: var(--signal);
+  background: var(--mark);
   transition: width 0.3s ease;
 }
 

@@ -13,29 +13,23 @@ export function BrandMark({
   tone = "light",
   className = "",
 }: BrandMarkProps) {
-  // HQ lockup on white — avoids black-box crop of original upload
+  // Compact lockup — keeps presence low in corporate header
   const image = (
     <Image
-      src="/assets/logo-header-hq.png"
+      src="/assets/logo-header-compact.png"
       alt={company.legalName}
-      width={220}
-      height={64}
-      className="h-11 w-auto max-w-[200px] object-contain object-left md:h-12 md:max-w-[240px]"
+      width={160}
+      height={44}
+      className="h-7 w-auto max-w-[148px] object-contain object-left opacity-95 md:h-8 md:max-w-[168px]"
       priority
     />
   );
 
   const content =
     tone === "dark" ? (
-      <span
-        className={`inline-flex max-w-full overflow-visible rounded-md bg-[#f7f4ef] px-2.5 py-1.5 ${className}`}
-      >
-        {image}
-      </span>
+      <span className={`inline-flex bg-white px-2 py-1 ${className}`}>{image}</span>
     ) : (
-      <span className={`inline-flex max-w-full items-center overflow-visible ${className}`}>
-        {image}
-      </span>
+      <span className={`inline-flex items-center ${className}`}>{image}</span>
     );
 
   if (!href) return content;
