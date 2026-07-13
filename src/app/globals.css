@@ -1,17 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #101418;
-  --ink-soft: #4b5563;
-  --field: #f3f6f5;
-  --field-deep: #e5ece9;
-  --mark: #0f766e;
-  --mark-deep: #0b5a54;
-  --signal: #ea580c;
-  --signal-soft: #fb923c;
-  --line: rgba(16, 20, 24, 0.1);
+  /* Extracted from original GMEMC logo: navy text + lime/blue GM tiles */
+  --ink: #0f172a;
+  --ink-soft: #475569;
+  --field: #f0f4fa;
+  --field-deep: #e2e9f3;
+  --mark: #1b4f9c;
+  --mark-deep: #143a74;
+  --signal: #8bc53f;
+  --signal-soft: #a3d65c;
+  --lime: #8bc53f;
+  --blue-mid: #3d6fbf;
+  --line: rgba(15, 23, 42, 0.1);
   --white: #ffffff;
-  --chalk: #f8faf9;
+  --chalk: #f8fafc;
 }
 
 @theme inline {
@@ -23,6 +26,8 @@
   --color-mark-deep: var(--mark-deep);
   --color-signal: var(--signal);
   --color-signal-soft: var(--signal-soft);
+  --color-lime: var(--lime);
+  --color-blue-mid: var(--blue-mid);
   --color-line: var(--line);
   --color-chalk: var(--chalk);
   --font-sans: var(--font-body);
@@ -57,14 +62,14 @@ img {
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--mark) 28%, white);
+  background: color-mix(in srgb, var(--mark) 22%, white);
 }
 
 .blueprint {
   background-color: var(--field);
   background-image:
-    linear-gradient(to right, rgba(15, 118, 110, 0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(15, 118, 110, 0.06) 1px, transparent 1px);
+    linear-gradient(to right, rgba(27, 79, 156, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(27, 79, 156, 0.07) 1px, transparent 1px);
   background-size: 48px 48px;
 }
 

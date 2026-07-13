@@ -40,13 +40,13 @@ export default function HomePage() {
             <div className="animate-rise-3 mt-8 flex flex-wrap gap-3">
               <Link
                 href="/contact"
-                className="rounded-full bg-signal px-6 py-3 text-sm font-semibold text-white transition hover:bg-signal-soft"
+                className="rounded-full bg-signal px-6 py-3 text-sm font-semibold text-ink transition hover:bg-signal-soft"
               >
-                프로젝트 상담
+                문의하기
               </Link>
               <Link
                 href="/project"
-                className="rounded-full border border-ink/15 bg-white px-6 py-3 text-sm font-semibold text-ink transition hover:border-mark hover:text-mark"
+                className="rounded-full border border-mark/30 bg-white px-6 py-3 text-sm font-semibold text-mark transition hover:bg-mark hover:text-white"
               >
                 실적 살펴보기
               </Link>
@@ -166,16 +166,16 @@ export default function HomePage() {
       </section>
 
       {/* Process */}
-      <section className="bg-ink text-chalk">
+      <section className="bg-mark-deep text-chalk">
         <div className="mx-auto max-w-6xl px-5 py-20 md:px-8 md:py-28">
-          <p className="text-xs font-semibold tracking-[0.28em] text-mark">협업 방식</p>
+          <p className="text-xs font-semibold tracking-[0.28em] text-signal">협업 방식</p>
           <h2 className="mt-3 max-w-xl font-[family-name:var(--font-display)] text-3xl font-bold md:text-5xl">
             문의부터 준공까지, 일정이 보이게
           </h2>
           <div className="mt-12 grid gap-6 md:grid-cols-4">
             {processSteps.map((step) => (
               <article key={step.step} className="border-t border-white/15 pt-5">
-                <p className="font-[family-name:var(--font-display)] text-sm text-mark">
+                <p className="font-[family-name:var(--font-display)] text-sm text-signal">
                   {step.step}
                 </p>
                 <h3 className="mt-3 text-lg font-bold">{step.title}</h3>
@@ -246,21 +246,21 @@ export default function HomePage() {
               </div>
             </dl>
           </div>
-          <div className="flex flex-col justify-center gap-4 rounded-3xl bg-ink p-8 text-white md:p-10">
+          <div className="flex flex-col justify-center gap-4 rounded-3xl bg-mark-deep p-8 text-white md:p-10">
             <p className="text-sm text-white/70">빠른 자료</p>
             <a
               href={company.nominationUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full bg-mark px-5 py-3 text-center text-sm font-semibold hover:bg-mark-deep"
+              className="rounded-full bg-mark px-5 py-3 text-center text-sm font-semibold hover:bg-blue-mid"
             >
               지명원 다운로드
             </a>
             <Link
               href="/contact"
-              className="rounded-full bg-signal px-5 py-3 text-center text-sm font-semibold hover:bg-signal-soft"
+              className="rounded-full bg-signal px-5 py-3 text-center text-sm font-semibold text-ink hover:bg-signal-soft"
             >
-              온라인 문의 작성
+              문의하기
             </Link>
             <Link
               href="/company"

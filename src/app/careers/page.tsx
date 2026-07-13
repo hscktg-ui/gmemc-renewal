@@ -9,9 +9,9 @@ export const metadata: Metadata = {
 export default function CareersPage() {
   return (
     <>
-      <section className="bg-ink text-chalk">
+      <section className="bg-mark-deep text-chalk">
         <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
-          <p className="text-xs font-semibold tracking-[0.28em] text-mark">채용</p>
+          <p className="text-xs font-semibold tracking-[0.28em] text-signal">채용</p>
           <h1 className="mt-4 font-[family-name:var(--font-display)] text-4xl font-bold md:text-6xl">
             함께 도면을 다듬을
             <br />

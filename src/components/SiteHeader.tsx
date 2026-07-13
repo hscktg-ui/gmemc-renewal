@@ -15,9 +15,9 @@ export function SiteHeader() {
   }, [pathname]);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-chalk/90 backdrop-blur-md">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-white/95 backdrop-blur-md">
       <div className="mx-auto flex h-[4.25rem] max-w-6xl items-center justify-between gap-4 px-5 md:px-8">
-        <BrandMark />
+        <BrandMark tone="light" />
 
         <nav className="hidden items-center gap-6 lg:flex">
           {nav.map((item) => {
@@ -49,10 +49,16 @@ export function SiteHeader() {
           </a>
           <a
             href={`tel:${company.phone}`}
-            className="rounded-full bg-ink px-4 py-2 text-xs font-semibold tracking-wide text-white transition hover:bg-mark"
+            className="rounded-full bg-mark px-4 py-2 text-xs font-semibold tracking-wide text-white transition hover:bg-mark-deep"
           >
             {company.phone}
           </a>
+          <Link
+            href="/contact"
+            className="rounded-full bg-signal px-4 py-2 text-xs font-semibold text-ink transition hover:bg-signal-soft"
+          >
+            문의하기
+          </Link>
         </div>
 
         <button
@@ -71,16 +77,19 @@ export function SiteHeader() {
       </div>
 
       {open && (
-        <div className="border-t border-line bg-chalk px-5 py-5 lg:hidden">
+        <div className="border-t border-line bg-white px-5 py-5 lg:hidden">
           <nav className="flex flex-col gap-3">
             {nav.map((item) => (
               <Link key={item.href} href={item.href} className="text-base font-medium">
                 {item.label}
               </Link>
             ))}
-            <a href={`tel:${company.phone}`} className="pt-2 text-mark">
+            <a href={`tel:${company.phone}`} className="pt-2 font-semibold text-mark">
               {company.phone}
             </a>
+            <Link href="/contact" className="font-semibold text-ink">
+              문의하기
+            </Link>
           </nav>
         </div>
       )}

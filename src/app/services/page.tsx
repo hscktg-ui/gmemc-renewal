@@ -10,9 +10,9 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <>
-      <section className="bg-ink text-chalk">
+      <section className="bg-mark-deep text-chalk">
         <div className="mx-auto max-w-6xl px-5 py-16 md:px-8 md:py-24">
-          <p className="text-xs font-semibold tracking-[0.28em] text-mark">사업</p>
+          <p className="text-xs font-semibold tracking-[0.28em] text-signal">사업</p>
           <h1 className="mt-4 max-w-3xl font-[family-name:var(--font-display)] text-4xl font-bold md:text-6xl">
             전기 · 통신 · 소방 · 기계
             <br />
@@ -69,7 +69,7 @@ export default function ServicesPage() {
           </div>
           <Link
             href="/contact"
-            className="mt-10 inline-flex rounded-full bg-signal px-6 py-3 text-sm font-semibold text-white"
+            className="mt-10 inline-flex rounded-full bg-signal px-6 py-3 text-sm font-semibold text-ink"
           >
             사업 범위 상담하기
           </Link>

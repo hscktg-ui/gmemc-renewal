@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: company.legalName,
     description: company.description,
-    images: ["/assets/logo-renewal.png"],
+    images: ["/assets/logo-main.png"],
   },
 };
 
@@ -42,18 +42,18 @@ export default function RootLayout({
         <SiteHeader />
         <main className="min-h-screen pt-[4.25rem] pb-20 md:pb-0">{children}</main>
         <SiteFooter />
-        <div className="fixed inset-x-0 bottom-0 z-40 flex gap-2 border-t border-line bg-chalk/95 p-3 backdrop-blur md:hidden">
+        <div className="fixed inset-x-0 bottom-0 z-40 flex gap-2 border-t border-line bg-white/95 p-3 backdrop-blur md:hidden">
           <a
             href={`tel:${company.phone}`}
-            className="flex-1 rounded-full bg-ink py-3 text-center text-sm font-semibold text-white"
+            className="flex-1 rounded-full bg-mark py-3 text-center text-sm font-semibold text-white"
           >
             전화 문의
           </a>
           <a
             href="/contact"
-            className="flex-1 rounded-full bg-signal py-3 text-center text-sm font-semibold text-white"
+            className="flex-1 rounded-full bg-signal py-3 text-center text-sm font-semibold text-ink"
           >
-            상담 신청
+            문의하기
           </a>
         </div>
       </body>
