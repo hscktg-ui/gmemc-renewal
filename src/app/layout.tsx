@@ -4,13 +4,17 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { company } from "@/lib/site";
 import "./globals.css";
 
+const siteUrl = "https://gmemc-renewal.vercel.app";
+const titleDefault = `${company.name} | ${company.tagline}`;
+const description = `${company.specialty}. ${company.description} ${company.highlight}`;
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://gmemc-renewal.vercel.app"),
+  metadataBase: new URL(siteUrl),
   title: {
-    default: `${company.name} | ${company.tagline}`,
+    default: titleDefault,
     template: `%s | ${company.name}`,
   },
-  description: `${company.specialty} ${company.description} ${company.highlight}. 대표 ${company.ceo}. ${company.address}`,
+  description,
   keywords: company.keywords.split(", ").concat([
     "지엠이엠씨",
     "GMEMC",
@@ -18,10 +22,40 @@ export const metadata: Metadata = {
     "설비감리",
     "전문소방설계",
   ]),
+  applicationName: company.legalName,
+  authors: [{ name: company.legalName }],
+  creator: company.legalName,
+  manifest: "/site.webmanifest",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+  },
   openGraph: {
+    type: "website",
+    locale: "ko_KR",
+    url: siteUrl,
+    siteName: company.legalName,
     title: `${company.legalName} | ${company.specialty}`,
-    description: company.description,
-    images: ["/assets/logo-main.png"],
+    description,
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: `${company.legalName} — ${company.specialty}`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${company.legalName} | ${company.specialty}`,
+    description,
+    images: ["/og-image.jpg"],
   },
 };
 
