@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Archivo, Noto_Sans_KR } from "next/font/google";
+import { Noto_Sans_KR, Syne } from "next/font/google";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { company } from "@/lib/site";
@@ -11,22 +11,23 @@ const body = Noto_Sans_KR({
   weight: ["400", "500", "700"],
 });
 
-const display = Archivo({
+const display = Syne({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://gmemc-renewal.vercel.app"),
   title: {
     default: `${company.name} | ${company.tagline}`,
     template: `%s | ${company.name}`,
   },
-  description: company.description,
+  description: `${company.description} ${company.highlight}. 대표 ${company.ceo}. ${company.address}`,
   openGraph: {
-    title: company.name,
+    title: company.legalName,
     description: company.description,
-    images: ["/assets/company/og.png"],
+    images: ["/assets/logo-renewal.png"],
   },
 };
 
@@ -39,14 +40,22 @@ export default function RootLayout({
     <html lang="ko">
       <body className={`${body.variable} ${display.variable} antialiased`}>
         <SiteHeader />
-        <main className="min-h-screen">{children}</main>
+        <main className="min-h-screen pt-[4.25rem] pb-20 md:pb-0">{children}</main>
         <SiteFooter />
-        <a
-          href={`tel:${company.phone}`}
-          className="fixed bottom-5 right-5 z-40 rounded-sm bg-accent px-4 py-3 font-[family-name:var(--font-display)] text-xs tracking-[0.14em] text-ink shadow-lg md:hidden"
-        >
-          전화 문의
-        </a>
+        <div className="fixed inset-x-0 bottom-0 z-40 flex gap-2 border-t border-line bg-chalk/95 p-3 backdrop-blur md:hidden">
+          <a
+            href={`tel:${company.phone}`}
+            className="flex-1 rounded-full bg-ink py-3 text-center text-sm font-semibold text-white"
+          >
+            전화 문의
+          </a>
+          <a
+            href="/contact"
+            className="flex-1 rounded-full bg-signal py-3 text-center text-sm font-semibold text-white"
+          >
+            상담 신청
+          </a>
+        </div>
       </body>
     </html>
   );

@@ -12,53 +12,43 @@ export function ContactForm() {
 
   if (sent) {
     return (
-      <p className="mt-8 text-ink-soft">
-        정상적으로 접수되었습니다. 담당자가 확인 후 연락드리겠습니다.
+      <p className="mt-8 rounded-2xl bg-field p-4 text-ink-soft">
+        접수되었습니다. 담당자가 확인 후 연락드리겠습니다.
       </p>
     );
   }
 
   return (
     <form className="mt-6 space-y-4" onSubmit={onSubmit}>
-      <label className="block text-sm">
-        <span className="text-ink-soft">회사명</span>
-        <input
-          required
-          name="company"
-          className="mt-1 w-full border border-line bg-white px-3 py-2 outline-none focus:border-steel"
-        />
-      </label>
-      <label className="block text-sm">
-        <span className="text-ink-soft">담당자</span>
-        <input
-          required
-          name="name"
-          className="mt-1 w-full border border-line bg-white px-3 py-2 outline-none focus:border-steel"
-        />
-      </label>
-      <label className="block text-sm">
-        <span className="text-ink-soft">연락처</span>
-        <input
-          required
-          name="phone"
-          type="tel"
-          className="mt-1 w-full border border-line bg-white px-3 py-2 outline-none focus:border-steel"
-        />
-      </label>
+      {[
+        { name: "company", label: "회사명", type: "text" },
+        { name: "name", label: "담당자", type: "text" },
+        { name: "phone", label: "연락처", type: "tel" },
+      ].map((field) => (
+        <label key={field.name} className="block text-sm">
+          <span className="text-ink-soft">{field.label}</span>
+          <input
+            required
+            name={field.name}
+            type={field.type}
+            className="mt-1 w-full rounded-xl border border-line bg-field px-3 py-2.5 outline-none focus:border-mark"
+          />
+        </label>
+      ))}
       <label className="block text-sm">
         <span className="text-ink-soft">문의내용</span>
         <textarea
           required
           name="message"
           rows={5}
-          className="mt-1 w-full resize-y border border-line bg-white px-3 py-2 outline-none focus:border-steel"
+          className="mt-1 w-full resize-y rounded-xl border border-line bg-field px-3 py-2.5 outline-none focus:border-mark"
         />
       </label>
       <button
         type="submit"
-        className="rounded-sm bg-steel px-5 py-3 font-[family-name:var(--font-display)] text-xs tracking-[0.16em] text-white transition hover:bg-steel-bright"
+        className="rounded-full bg-signal px-5 py-3 text-sm font-semibold text-white hover:bg-signal-soft"
       >
-        문의하기
+        문의 보내기
       </button>
     </form>
   );

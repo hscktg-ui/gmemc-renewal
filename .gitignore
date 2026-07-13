@@ -43,3 +43,4 @@ next-env.d.ts
 # scraped source snapshots (large)
 research/*.html
 
+.vercel

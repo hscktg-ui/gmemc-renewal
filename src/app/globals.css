@@ -1,28 +1,30 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #12161a;
-  --ink-soft: #3a4550;
-  --paper: #eef1f4;
-  --paper-deep: #e2e7ec;
-  --steel: #1b3a4b;
-  --steel-bright: #2f5f73;
-  --accent: #b08d57;
-  --accent-soft: #d4b483;
-  --line: rgba(18, 22, 26, 0.12);
+  --ink: #101418;
+  --ink-soft: #4b5563;
+  --field: #f3f6f5;
+  --field-deep: #e5ece9;
+  --mark: #0f766e;
+  --mark-deep: #0b5a54;
+  --signal: #ea580c;
+  --signal-soft: #fb923c;
+  --line: rgba(16, 20, 24, 0.1);
   --white: #ffffff;
+  --chalk: #f8faf9;
 }
 
 @theme inline {
   --color-ink: var(--ink);
   --color-ink-soft: var(--ink-soft);
-  --color-paper: var(--paper);
-  --color-paper-deep: var(--paper-deep);
-  --color-steel: var(--steel);
-  --color-steel-bright: var(--steel-bright);
-  --color-accent: var(--accent);
-  --color-accent-soft: var(--accent-soft);
+  --color-field: var(--field);
+  --color-field-deep: var(--field-deep);
+  --color-mark: var(--mark);
+  --color-mark-deep: var(--mark-deep);
+  --color-signal: var(--signal);
+  --color-signal-soft: var(--signal-soft);
   --color-line: var(--line);
+  --color-chalk: var(--chalk);
   --font-sans: var(--font-body);
   --font-display: var(--font-display);
 }
@@ -37,10 +39,10 @@ html {
 
 body {
   margin: 0;
-  background: var(--paper);
+  background: var(--field);
   color: var(--ink);
   font-family: var(--font-body), sans-serif;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 a {
@@ -55,13 +57,21 @@ img {
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--accent) 35%, white);
+  background: color-mix(in srgb, var(--mark) 28%, white);
+}
+
+.blueprint {
+  background-color: var(--field);
+  background-image:
+    linear-gradient(to right, rgba(15, 118, 110, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 118, 110, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
 }
 
 @keyframes rise {
   from {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(22px);
   }
   to {
     opacity: 1;
@@ -69,56 +79,62 @@ img {
   }
 }
 
-@keyframes ken {
+@keyframes slide-x {
   from {
-    transform: scale(1.08);
+    opacity: 0;
+    transform: translateX(-16px);
   }
   to {
-    transform: scale(1);
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
-@keyframes draw {
+@keyframes pan {
   from {
-    width: 0;
+    transform: scale(1.06) translate3d(1.5%, 0, 0);
   }
   to {
-    width: 100%;
+    transform: scale(1) translate3d(0, 0, 0);
   }
 }
 
 .animate-rise {
-  animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: rise 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-.animate-rise-delay {
-  animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+.animate-rise-2 {
+  animation: rise 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
 }
 
-.animate-rise-delay-2 {
-  animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+.animate-rise-3 {
+  animation: rise 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.24s both;
 }
 
-.animate-ken {
-  animation: ken 8s ease-out both;
+.animate-slide {
+  animation: slide-x 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-.underline-draw {
+.animate-pan {
+  animation: pan 10s ease-out both;
+}
+
+.nav-link {
   position: relative;
 }
 
-.underline-draw::after {
+.nav-link::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -2px;
-  height: 1px;
-  background: currentColor;
+  bottom: -4px;
   width: 0;
-  transition: width 0.35s ease;
+  height: 2px;
+  background: var(--mark);
+  transition: width 0.3s ease;
 }
 
-.underline-draw:hover::after,
-.underline-draw[aria-current="page"]::after {
+.nav-link:hover::after,
+.nav-link[aria-current="page"]::after {
   width: 100%;
 }
