@@ -11,15 +11,15 @@ export default function CareersPage() {
     <>
       <section className="bg-mark-deep text-white">
         <div className="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
-          <p className="eyebrow text-white/50">Careers</p>
-          <h1 className="display mt-5 text-4xl md:text-6xl">
-            함께 도면을 다듬을
+          <p className="eyebrow text-white/50">채용</p>
+          <h1 className="display mt-5 text-4xl md:text-5xl">
+            도면을 함께 다듬을
             <br />
             동료를 찾습니다
           </h1>
-          <p className="mt-6 max-w-2xl text-white/60">
-            공개 채용 정보는 사람인 등 외부 채널 기준으로 반영했습니다. 지원 전 최신 공고를
-            확인해 주세요.
+          <p className="mt-6 max-w-2xl text-[15px] leading-relaxed text-white/60">
+            공개 채용은 사람인 등 외부 공고를 기준으로 안내합니다. 지원 전 최신 내용을 확인해
+            주세요.
           </p>
         </div>
       </section>

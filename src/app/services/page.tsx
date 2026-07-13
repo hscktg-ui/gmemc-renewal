@@ -12,13 +12,15 @@ export default function ServicesPage() {
     <>
       <section className="bg-mark-deep text-white">
         <div className="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
-          <p className="eyebrow text-white/50">Business</p>
-          <h1 className="display mt-5 max-w-3xl text-4xl md:text-6xl">
-            전기 · 통신 · 소방 · 기계
+          <p className="eyebrow text-white/50">사업</p>
+          <h1 className="display mt-5 max-w-3xl text-4xl md:text-5xl">
+            네 분야를 한 팀이
             <br />
-            그리고 친환경 인증
+            설계하고 감리합니다
           </h1>
-          <p className="mt-6 max-w-2xl text-white/60">{company.description}</p>
+          <p className="mt-6 max-w-2xl text-[15px] leading-relaxed text-white/60">
+            {company.description}
+          </p>
         </div>
       </section>
 
@@ -57,7 +59,7 @@ export default function ServicesPage() {
 
       <section className="border-t border-line bg-field">
         <div className="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-24">
-          <h2 className="display text-3xl">진행 프로세스</h2>
+          <h2 className="display text-3xl">업무 진행 순서</h2>
           <div className="mt-12 grid gap-8 md:grid-cols-4">
             {processSteps.map((step) => (
               <div key={step.step} className="border-t border-line bg-white pt-5">
@@ -68,7 +70,7 @@ export default function ServicesPage() {
             ))}
           </div>
           <Link href="/contact" className="btn-primary mt-12">
-            사업 범위 상담하기
+            사업 범위 상담
           </Link>
         </div>
       </section>

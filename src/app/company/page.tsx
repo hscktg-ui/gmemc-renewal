@@ -12,52 +12,44 @@ export default function CompanyPage() {
     <>
       <section className="border-b border-line bg-mark-deep text-white">
         <div className="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-28">
-          <p className="eyebrow text-white/50">Company</p>
+          <p className="eyebrow text-white/50">회사 소개</p>
           <h1 className="display mt-5 max-w-3xl text-4xl md:text-5xl">
-            설계와 감리를
-            <br />
-            같은 언어로 연결합니다
+            {company.mission}
           </h1>
-          <p className="mt-6 max-w-2xl text-white/60">{company.mission}</p>
         </div>
       </section>
 
       <section className="bg-white">
-        <div className="mx-auto grid max-w-7xl gap-14 px-5 py-20 md:grid-cols-2 md:px-8 md:py-28">
-          <div className="relative aspect-[4/5] overflow-hidden bg-field">
+        <div className="mx-auto grid max-w-7xl gap-14 px-5 py-20 md:grid-cols-[0.9fr_1.1fr] md:items-start md:px-8 md:py-28">
+          <div className="relative aspect-[4/5] overflow-hidden bg-field md:sticky md:top-24">
             <Image
-              src="/assets/ceo-arch-sketch.jpg"
-              alt="건축 개념 스케치"
+              src="/assets/hero-mapo-hq.jpg"
+              alt="마포아트홀 실적"
               fill
               className="object-cover"
-              sizes="(max-width:768px) 100vw, 480px"
+              sizes="(max-width:768px) 100vw, 420px"
               priority
             />
-            <div className="absolute inset-x-0 bottom-0 bg-mark-deep/85 px-5 py-4 text-white">
-              <p className="eyebrow text-white/55">Concept</p>
-              <p className="mt-1 text-sm font-medium">건축 설비 엔지니어링 스케치</p>
-            </div>
           </div>
 
-          <div className="flex flex-col justify-center">
-            <p className="eyebrow text-mark">CEO</p>
-            <h2 className="display mt-4 text-3xl text-ink">
+          <div>
+            <p className="eyebrow text-mark">대표 인사</p>
+            <h2 className="display mt-4 text-3xl text-ink md:text-4xl">
               대표이사 {company.ceo}
             </h2>
-            <div className="mt-6 space-y-4 text-[15px] leading-relaxed text-ink-soft">
-              <p>
-                {company.legalName}는 전기·정보통신·소방·기계설비의 설계와 감리를 수행하는
-                종합 엔지니어링 기업입니다.
+
+            <div className="mt-8 space-y-5 text-[16px] leading-[1.85] text-ink/80">
+              {company.ceoMessage.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+              <p className="pt-2 text-sm font-medium text-ink">
+                {company.legalName}
+                <br />
+                대표이사 {company.ceo}
               </p>
-              <p>
-                {company.highlight}. 에너지 분석과 친환경 건축을 고려한 설계로, 발주처와
-                시공이 같은 도면 위에서 의사결정할 수 있도록 돕습니다.
-              </p>
-              <p className="font-medium text-ink">신뢰를 기술로 증명하겠습니다.</p>
-              <p className="text-sm text-ink/60">— {company.name} 대표 {company.ceo}</p>
             </div>
 
-            <dl className="mt-10 grid gap-3 sm:grid-cols-2">
+            <dl className="mt-12 grid gap-3 sm:grid-cols-2">
               <div className="border border-line bg-field px-4 py-3">
                 <dt className="text-[11px] text-ink-soft">법인명</dt>
                 <dd className="mt-1 text-sm font-medium">{company.legalName}</dd>
@@ -85,7 +77,7 @@ export default function CompanyPage() {
                 상담 문의
               </Link>
             </div>
-            <p className="mt-6 text-xs text-ink/45">{company.note}</p>
+            <p className="mt-6 text-xs leading-relaxed text-ink/45">{company.note}</p>
           </div>
         </div>
       </section>

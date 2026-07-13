@@ -10,41 +10,47 @@ export const company = {
   hours: "평일 09:00 – 18:00",
   closed: "토·일·공휴일 휴무",
   address: "경기도 고양시 일산동구 호수로 358-25, 동문굿모닝타워 2차 821·822호",
-  region: "고양 · 수도권",
-  tagline: "전문소방까지 아우르는 수도권 MEP 원스톱",
+  region: "고양",
+  tagline: "전기·통신·소방·기계 설계와 감리",
   description:
-    "전기 · 통신 · 전문소방 · 기계 설계·감리와 친환경 인증을 한 팀이 끝까지 책임집니다.",
-  highlight: "서울·경기·인천 설계·감리 용역 1,200건+",
-  specialty:
-    "전문소방·친환경 인증까지 — 설계와 감리를 분리하지 않는 통합 MEP",
+    "건축물의 설비는 보이지 않을 때 가장 잘 일한 것입니다. 지엠이엠씨는 설계부터 감리까지 한 팀이 책임을 이어 갑니다.",
+  highlight: "서울·경기·인천을 중심으로 설계·감리 용역 1,200여 건을 수행해 왔습니다.",
+  specialty: "전문소방을 포함한 설비 설계·감리",
+  heroLead:
+    "도면이 현장에서 통하려면, 설계와 감리가 같은 언어를 써야 합니다.",
   mission:
-    "발주처와 설계·시공이 같은 도면을 보게 만드는 것이 우리의 일입니다. 신뢰를 숫자로 증명하고, 현장 언어로 답합니다.",
+    "발주처·설계·시공이 같은 도면을 보고 같은 기준으로 판단할 수 있게 하는 것. 그것이 지엠이엠씨의 일입니다.",
+  ceoMessage: [
+    "건축주와 시공사가 같은 도면을 보고도 서로 다른 해석을 할 때가 있습니다. 설비는 그 간극이 곧 공기와 비용으로 이어집니다.",
+    "주식회사 지엠이엠씨는 전기·정보통신·소방·기계설비의 설계와 감리를 수행합니다. 전문소방과 친환경·인허가 자료까지, 필요한 범위는 처음부터 분명히 잡고 끝까지 이어 갑니다.",
+    "화려한 약속보다, 현장에서 통하는 도면과 기록을 남기겠습니다.",
+  ],
   nominationUrl:
     "https://drive.google.com/file/d/1BGux-RVgzpWDSuTMsjlSF9wD4Ynd2jfQ/view?usp=drive_link",
   careersUrl:
     "https://www.saramin.co.kr/zf_user/jobs/relay/view?rec_idx=53232142",
   note:
-    "의료기기 기업 ‘지엠엠씨(GMMC)’와는 다른, 설비 설계·감리 전문 법인입니다.",
+    "※ 의료기기 기업 ‘지엠엠씨(GMMC)’와는 무관한, 설비 설계·감리 전문 법인입니다.",
   keywords:
     "MEP 설계 감리, 전문소방, 전기설비, 통신설비, 기계설비, 친환경 인증, 고양 엔지니어링",
 } as const;
 
 export const differentiators = [
   {
-    title: "전문소방 포함 4대 MEP",
-    desc: "전기·통신·전문소방·기계를 한 회사에서 — 협의 창구를 하나로.",
+    title: "네 분야를 한 창구로",
+    desc: "전기·통신·전문소방·기계를 분리 발주하지 않아도 됩니다. 협의 창구가 줄어들면 일정과 품질 관리가 단순해집니다.",
   },
   {
-    title: "1,200건+ 수도권 실적",
-    desc: "레저·공공·공동주택·복합까지 용도별·지역별로 바로 검색.",
+    title: "용도와 규모가 다른 현장",
+    desc: "골프·문화·주거·복합까지. 1,200여 건의 수도권 실적이 비슷한 조건의 판단을 돕습니다.",
   },
   {
-    title: "지명원·전화 즉시 연결",
-    desc: "헤더에서 지명원 다운로드와 031-938-0999로 바로 상담.",
+    title: "설계와 감리의 연속",
+    desc: "도면을 그린 팀이 현장 변경에도 답합니다. 의도 해석에 시간이 덜 들고, 기록이 남습니다.",
   },
   {
-    title: "친환경 인증 지원",
-    desc: "설계·감리와 함께 친환경·인허가 자료 정리까지 지원.",
+    title: "인허가·인증까지 정리",
+    desc: "친환경 인증과 관련 자료는 설계·감리 과정에서 함께 맞춰 드립니다. 준공 직전에 허둥대지 않도록.",
   },
 ] as const;
 
@@ -52,14 +58,13 @@ export const trustBadges = [
   "지명원 공개",
   "사업자 506-86-00201",
   "대표 강원구",
-  "채용·성장 중",
 ] as const;
 
 export const stats = [
-  { value: "1,200+", label: "수도권 설계·감리 실적" },
-  { value: "4", label: "전기·통신·소방·기계" },
-  { value: "24", label: "대표 포트폴리오 공개" },
-  { value: "즉시", label: "전화·지명원·문의 CTA" },
+  { value: "1,200+", label: "설계·감리 수행 실적" },
+  { value: "4", label: "전기 · 통신 · 소방 · 기계" },
+  { value: "24", label: "공개 대표 프로젝트" },
+  { value: "고양", label: "본사 · 수도권 중심" },
 ] as const;
 
 export const nav = [
@@ -76,28 +81,28 @@ export const businessAreas = [
     id: "electrical",
     title: "전기",
     en: "Electrical",
-    desc: "수배전, 조명, 동력, 피뢰 등 전기설비 설계·감리",
+    desc: "수배전·조명·동력·피뢰 등 전기설비의 설계와 감리",
     image: "/assets/company/biz-electrical.jpg",
   },
   {
     id: "telecom",
     title: "통신",
     en: "Telecom",
-    desc: "정보통신, 방송, 보안·네트워크 시스템 설계·감리",
+    desc: "정보통신·방송·보안·네트워크 등 통신설비의 설계와 감리",
     image: "/assets/company/biz-telecom.jpg",
   },
   {
     id: "fire",
     title: "전문소방",
     en: "Fire Safety",
-    desc: "소방전기·소방기계 전문 설계·감리로 인명 안전 확보",
+    desc: "소방전기·소방기계 전문 설계·감리. 인명 안전이 기준입니다.",
     image: "/assets/company/biz-fire.jpg",
   },
   {
     id: "mech",
     title: "기계",
     en: "Mechanical",
-    desc: "공조, 위생, 열원 등 기계설비 설계·감리",
+    desc: "공조·위생·열원 등 기계설비의 설계와 감리",
     image: "/assets/company/biz-mech.jpg",
   },
 ] as const;
@@ -105,34 +110,34 @@ export const businessAreas = [
 export const processSteps = [
   {
     step: "01",
-    title: "요구사항 정리",
-    desc: "용도·일정·법규를 먼저 맞춰 과설계를 줄입니다.",
+    title: "범위와 일정 확정",
+    desc: "용도·법규·일정을 먼저 맞춰 과설계와 재작업을 줄입니다.",
   },
   {
     step: "02",
-    title: "설계·협의",
-    desc: "건축·구조와 간섭을 조기에 조정합니다.",
+    title: "설계와 협의",
+    desc: "건축·구조와의 간섭을 도면 단계에서 조정합니다.",
   },
   {
     step: "03",
-    title: "감리·현장대응",
-    desc: "시공 중 변경에 빠르게 답하고 기록을 남깁니다.",
+    title: "감리와 현장 대응",
+    desc: "시공 중 변경에 신속히 답하고, 결정 근거를 남깁니다.",
   },
   {
     step: "04",
-    title: "준공·인증지원",
-    desc: "친환경·인허가 관련 자료를 정리해 드립니다.",
+    title: "준공과 자료 정리",
+    desc: "인증·인허가에 필요한 자료를 과정 중에 정리합니다.",
   },
 ] as const;
 
 export const careers = [
   {
-    title: "기계 설계 및 소방기계설계",
+    title: "기계·소방기계 설계",
     experience: "경력 5년 이상",
     source: "사람인",
     href: "https://www.saramin.co.kr/zf_user/jobs/relay/view?rec_idx=53232142",
     summary:
-      "기계설비·소방기계 설계 역량을 갖춘 인재를 모집 중입니다. 수도권 프로젝트 중심으로 협업합니다.",
+      "기계설비와 소방기계 설계 경험을 갖춘 분을 모십니다. 수도권 현장을 중심으로 함께 일합니다.",
   },
 ] as const;
 

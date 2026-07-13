@@ -27,10 +27,15 @@ export default function ContactPage() {
     <>
       <section className="border-b border-line bg-white">
         <div className="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-24">
-          <p className="eyebrow text-mark">Contact</p>
-          <h1 className="display mt-5 text-4xl md:text-5xl">필요한 정보만 빠르게</h1>
-          <p className="mt-4 max-w-2xl text-ink-soft">
-            전화 · 메일 · 지명원 · 오시는 길 · 문의 폼을 한곳에 모아 두었습니다.
+          <p className="eyebrow text-mark">문의</p>
+          <h1 className="display mt-5 text-4xl md:text-5xl">
+            필요한 연락처와
+            <br />
+            자료를 한곳에
+          </h1>
+          <p className="mt-4 max-w-2xl text-[15px] leading-relaxed text-ink-soft">
+            전화·메일·지명원·오시는 길·문의 폼을 모아 두었습니다. 용도와 일정만 남겨 주셔도
+            됩니다.
           </p>
         </div>
       </section>
