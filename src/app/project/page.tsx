@@ -3,6 +3,14 @@ import { ProjectGrid } from "@/components/ProjectGrid";
 
 export const metadata: Metadata = {
   title: "실적",
+  description:
+    "지엠이엠씨 설계·감리 실적. 레저·공공·공동주택·복합 등 용도·지역별 포트폴리오를 확인하세요.",
+  alternates: { canonical: "/project" },
+  openGraph: {
+    title: "실적 | 지엠이엠씨",
+    description: "용도와 지역으로 찾는 지엠이엠씨 포트폴리오",
+    url: "/project",
+  },
 };
 
 export default function ProjectPage() {

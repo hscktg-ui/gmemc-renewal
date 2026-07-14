@@ -4,6 +4,14 @@ import { careers, company } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "채용",
+  description:
+    "지엠이엠씨 채용 안내. 기계·소방기계 설계 경력직 등 공개 채용 정보를 확인하세요.",
+  alternates: { canonical: "/careers" },
+  openGraph: {
+    title: "채용 | 지엠이엠씨",
+    description: "도면을 함께 다듬을 동료를 찾습니다.",
+    url: "/careers",
+  },
 };
 
 export default function CareersPage() {

@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/JsonLd";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { company } from "@/lib/site";
+import { siteUrl } from "@/lib/seo";
 import "./globals.css";
 
-const siteUrl = "https://gmemc.co.kr";
 const titleDefault = `${company.name} | ${company.tagline}`;
 const description = `${company.specialty}. ${company.description} ${company.highlight}`;
+
+const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
+const naverVerification = process.env.NEXT_PUBLIC_NAVER_SITE_VERIFICATION;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -15,17 +19,41 @@ export const metadata: Metadata = {
     template: `%s | ${company.name}`,
   },
   description,
-  keywords: company.keywords.split(", ").concat([
+  keywords: [
     "지엠이엠씨",
+    "주식회사 지엠이엠씨",
     "GMEMC",
     "설비설계",
     "설비감리",
     "전문소방설계",
-  ]),
+    "전기설비 설계",
+    "기계설비 설계",
+    "통신설비 설계",
+    "소방설비 설계",
+    "MEP 설계",
+    "고양 설비설계",
+    "일산 설계사무소",
+    company.ceo,
+  ],
   applicationName: company.legalName,
   authors: [{ name: company.legalName }],
   creator: company.legalName,
+  publisher: company.legalName,
+  category: "business",
+  classification: "설비 설계·감리",
+  referrer: "origin-when-cross-origin",
+  formatDetection: {
+    telephone: true,
+    email: true,
+    address: true,
+  },
   manifest: "/site.webmanifest",
+  alternates: {
+    canonical: "/",
+    languages: {
+      "ko-KR": "/",
+    },
+  },
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -57,6 +85,31 @@ export const metadata: Metadata = {
     description,
     images: ["/og-image.jpg"],
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+  verification: {
+    ...(googleVerification ? { google: googleVerification } : {}),
+    other: {
+      ...(naverVerification
+        ? { "naver-site-verification": naverVerification }
+        : {}),
+    },
+  },
+  other: {
+    "geo.region": "KR-41",
+    "geo.placename": "고양시 일산동구",
+    "geo.position": "37.6615;126.7682",
+    ICBM: "37.6615, 126.7682",
+  },
 };
 
 export default function RootLayout({
@@ -73,6 +126,7 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
+        <JsonLd />
         <SiteHeader />
         <main className="min-h-screen pt-14 pb-20 md:pt-16 md:pb-0">{children}</main>
         <SiteFooter />

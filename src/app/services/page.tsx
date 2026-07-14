@@ -4,7 +4,15 @@ import Link from "next/link";
 import { businessAreas, company, processSteps } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "사업",
+  title: "사업 영역",
+  description:
+    "전기·통신·전문소방·기계설비 설계와 감리. 지엠이엠씨가 네 분야를 한 팀이 끝까지 책임집니다.",
+  alternates: { canonical: "/services" },
+  openGraph: {
+    title: "사업 영역 | 지엠이엠씨",
+    description: "전기 · 통신 · 전문소방 · 기계 설계·감리 사업 안내",
+    url: "/services",
+  },
 };
 
 export default function ServicesPage() {

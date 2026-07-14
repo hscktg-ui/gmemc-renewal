@@ -4,7 +4,16 @@ import Link from "next/link";
 import { company, stats } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "회사",
+  title: "회사 소개",
+  description:
+    "주식회사 지엠이엠씨 회사 소개. 대표이사 강원구, 전기·통신·전문소방·기계 설비 설계와 감리를 수행하는 엔지니어링 법인입니다.",
+  alternates: { canonical: "/company" },
+  openGraph: {
+    title: "회사 소개 | 지엠이엠씨",
+    description:
+      "설계와 감리를 같은 언어로 연결하는 주식회사 지엠이엠씨. 대표 강원구.",
+    url: "/company",
+  },
 };
 
 export default function CompanyPage() {

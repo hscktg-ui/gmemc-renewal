@@ -5,6 +5,14 @@ import { company } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "문의",
+  description:
+    "지엠이엠씨 문의. 전화 031-938-0999, 메일 gmemc@naver.com, 지명원 다운로드와 오시는 길 안내.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "문의 | 지엠이엠씨",
+    description: "상담 문의·지명원·오시는 길을 한곳에서 확인하세요.",
+    url: "/contact",
+  },
 };
 
 const faqs = [
@@ -24,9 +32,26 @@ const faqs = [
 
 const mapsUrl = `https://map.naver.com/v5/search/${encodeURIComponent(company.address)}`;
 
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.a,
+    },
+  })),
+};
+
 export default function ContactPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <section className="border-b border-line bg-white">
         <div className="mx-auto max-w-7xl px-5 py-20 md:px-8 md:py-24">
           <p className="eyebrow text-mark">문의</p>
