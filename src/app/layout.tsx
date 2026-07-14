@@ -4,7 +4,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { company } from "@/lib/site";
 import "./globals.css";
 
-const siteUrl = "https://gmemc-renewal.vercel.app";
+const siteUrl = "https://gmemc.co.kr";
 const titleDefault = `${company.name} | ${company.tagline}`;
 const description = `${company.specialty}. ${company.description} ${company.highlight}`;
 
